@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bgi/split-list",
+	"title": "Split List",
+	"description": "Numbered list beside an image.",
+	"category": "bgi",
+	"icon": "columns",
+	"keywords": ["bgi", "split-list"],
+	"acf": { "mode": "preview", "renderTemplate": "render.php" },
+	"supports": { "align": false, "anchor": true, "customClassName": true }
+}

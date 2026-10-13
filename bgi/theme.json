@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"layout": { "contentSize": "1220px", "wideSize": "1220px" },
+		"color": {
+			"custom": false,
+			"defaultPalette": false,
+			"palette": [
+				{ "slug": "black", "name": "Black", "color": "#080807" },
+				{ "slug": "black-2", "name": "Black 2", "color": "#0e0e0c" },
+				{ "slug": "white", "name": "White", "color": "#f5f3ee" },
+				{ "slug": "paper", "name": "Paper", "color": "#efeadf" },
+				{ "slug": "ink", "name": "Ink", "color": "#100f0c" },
+				{ "slug": "gold", "name": "Gold", "color": "#c9963a" },
+				{ "slug": "gold-light", "name": "Gold Light", "color": "#f0d78c" },
+				{ "slug": "gold-deep", "name": "Gold Deep", "color": "#8a651f" }
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{ "slug": "display", "name": "Oswald", "fontFamily": "'Oswald', sans-serif" },
+				{ "slug": "serif", "name": "Playfair Display", "fontFamily": "'Playfair Display', serif" },
+				{ "slug": "sans", "name": "Poppins", "fontFamily": "'Poppins', sans-serif" },
+				{ "slug": "arabic", "name": "Tajawal", "fontFamily": "'Tajawal', sans-serif" }
+			]
+		}
+	}
+}
