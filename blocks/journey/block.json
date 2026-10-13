@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bgi/journey",
+	"title": "Journey",
+	"description": "Heading and intro with a ruled list of points, beside a framed image.",
+	"category": "bgi",
+	"icon": "columns",
+	"keywords": [ "journey", "list", "image", "split", "bgi" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"validate": false
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"customClassName": true,
+		"html": false
+	}
+}

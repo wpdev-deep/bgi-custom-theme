@@ -109,3 +109,24 @@ msgstr "الذكاء المكاني"
 
 msgid "Hospitality"
 msgstr "الضيافة"
+
+msgid "Visibility"
+msgstr "الظهور"
+
+msgid "Be discovered across high-intent platforms."
+msgstr "كن مرئياً عبر المنصات عالية الاهتمام."
+
+msgid "Conversion"
+msgstr "التحويل"
+
+msgid "Convert demand into confirmed bookings."
+msgstr "حوّل الطلب إلى حجوزات مؤكدة."
+
+msgid "Experience"
+msgstr "التجربة"
+
+msgid "Create measurable engagement that drives decisions."
+msgstr "اخلق تفاعلاً قابلاً للقياس يقود القرار."
+
+msgid "Hospitality property facade"
+msgstr "واجهة منشأة ضيافة"

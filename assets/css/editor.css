@@ -1,0 +1,5 @@
+/* Block editor only. Scroll reveal has no script in the editor, so show revealed content at once. */
+.reveal {
+    opacity: 1;
+    transform: none;
+}

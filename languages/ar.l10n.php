@@ -46,5 +46,12 @@ return array(
 		'Virtual Reality' => 'الواقع الافتراضي',
 		'Spatial Intelligence' => 'الذكاء المكاني',
 		'Hospitality' => 'الضيافة',
+		'Visibility' => 'الظهور',
+		'Be discovered across high-intent platforms.' => 'كن مرئياً عبر المنصات عالية الاهتمام.',
+		'Conversion' => 'التحويل',
+		'Convert demand into confirmed bookings.' => 'حوّل الطلب إلى حجوزات مؤكدة.',
+		'Experience' => 'التجربة',
+		'Create measurable engagement that drives decisions.' => 'اخلق تفاعلاً قابلاً للقياس يقود القرار.',
+		'Hospitality property facade' => 'واجهة منشأة ضيافة',
 	),
 );
