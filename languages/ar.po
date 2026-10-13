@@ -97,3 +97,15 @@ msgstr "مرحباً بسمة العالمية، أود معرفة المزيد 
 
 msgid "Chat with BGI on WhatsApp"
 msgstr "تحدث مع BGI عبر واتساب"
+
+msgid "Immersive Experiences"
+msgstr "التجارب الغامرة"
+
+msgid "Virtual Reality"
+msgstr "الواقع الافتراضي"
+
+msgid "Spatial Intelligence"
+msgstr "الذكاء المكاني"
+
+msgid "Hospitality"
+msgstr "الضيافة"

@@ -42,5 +42,9 @@ return array(
 		'© %s BGI. All rights reserved.'                                                            => '© %s بي جي آي. جميع الحقوق محفوظة.',
 		'Hello BGI, I\'d like to learn more about your immersive experience services.'              => 'مرحباً بسمة العالمية، أود معرفة المزيد عن خدمات التجارب الغامرة.',
 		'Chat with BGI on WhatsApp'                                                                 => 'تحدث مع BGI عبر واتساب',
+		'Immersive Experiences' => 'التجارب الغامرة',
+		'Virtual Reality' => 'الواقع الافتراضي',
+		'Spatial Intelligence' => 'الذكاء المكاني',
+		'Hospitality' => 'الضيافة',
 	),
 );
