@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BGI 1.0.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Domain: bgi\n"
+
+msgid "Basma Global Integration LLC"
+msgstr "بسمة العالمية للتكامل ذ.م.م"
+
+msgid "Book a Demo"
+msgstr "احجز عرضاً تجريبياً"
+
+msgid "Let's show you what your property could look like."
+msgstr "دعنا نُريك كيف يمكن أن يبدو عقارك."
+
+msgid "Tell us a bit about your property and preferred time — we'll get back to you to confirm."
+msgstr "أخبرنا قليلاً عن عقارك والوقت المفضل لديك — وسنتواصل معك للتأكيد."
+
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+msgid "Email Address"
+msgstr "البريد الإلكتروني"
+
+msgid "Property / Company Name"
+msgstr "اسم العقار / الشركة"
+
+msgid "Preferred Date & Time"
+msgstr "التاريخ والوقت المفضلان"
+
+msgid "e.g. Weekday afternoons"
+msgstr "مثال: فترات ما بعد الظهر"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "Request Demo"
+msgstr "طلب عرض تجريبي"
+
+msgid "Thanks! Your demo request has been received — we'll be in touch to confirm a time."
+msgstr "شكراً لك! تم استلام طلب العرض التجريبي — سنتواصل معك لتأكيد الموعد."
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Primary"
+msgstr "القائمة الرئيسية"
+
+msgid "Toggle navigation"
+msgstr "فتح أو إغلاق القائمة"
+
+msgid "The Journey"
+msgstr "رحلتنا"
+
+msgid "Clients"
+msgstr "عملاؤنا"
+
+msgid "Services"
+msgstr "خدماتنا"
+
+msgid "Process"
+msgstr "آلية العمل"
+
+msgid "Blog"
+msgstr "المدونة"
+
+msgid "Contact"
+msgstr "تواصل معنا"
+
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+msgid "Terms & Conditions"
+msgstr "الشروط والأحكام"
+
+msgid "We don't capture spaces. We turn them into performance assets."
+msgstr "نحن لا نوثّق المساحات. نحوّلها إلى أصول أداء حقيقية."
+
+msgid "CR No."
+msgstr "رقم السجل التجاري"
+
+msgid "MISA License No."
+msgstr "رقم ترخيص هيئة الاستثمار (MISA)"
+
+msgid "Made in Saudi Arabia 🇸🇦"
+msgstr "صُنع في المملكة العربية السعودية 🇸🇦"
+
+msgid "© %s BGI. All rights reserved."
+msgstr "© %s بي جي آي. جميع الحقوق محفوظة."
+
+msgid "Hello BGI, I'd like to learn more about your immersive experience services."
+msgstr "مرحباً بسمة العالمية، أود معرفة المزيد عن خدمات التجارب الغامرة."
+
+msgid "Chat with BGI on WhatsApp"
+msgstr "تحدث مع BGI عبر واتساب"
+
+msgid "Immersive Experiences"
+msgstr "التجارب الغامرة"
+
+msgid "Virtual Reality"
+msgstr "الواقع الافتراضي"
+
+msgid "Spatial Intelligence"
+msgstr "الذكاء المكاني"
+
+msgid "Hospitality"
+msgstr "الضيافة"
