@@ -1,0 +1,127 @@
+{
+    "key": "group_6acdbd4d52803",
+    "title": "Footer EN",
+    "fields": [
+        {
+            "key": "field_6acdbd603ab2f",
+            "label": "Footer Logo",
+            "name": "footer_logo",
+            "type": "image",
+            "instructions": "Upload an image for the footer logo. If empty, falls back to header logo or default text logo.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_footer_en_tagline",
+            "label": "Footer Tagline",
+            "name": "footer_tagline",
+            "type": "textarea",
+            "instructions": "Default: We don't capture spaces. We turn them into performance assets.",
+            "required": 0,
+            "rows": 2
+        },
+        {
+            "key": "field_footer_en_email",
+            "label": "Contact Email",
+            "name": "footer_email",
+            "type": "email",
+            "instructions": "Default: wael@bgi.sa",
+            "required": 0
+        },
+        {
+            "key": "field_footer_en_domain",
+            "label": "Website Domain",
+            "name": "footer_domain",
+            "type": "text",
+            "instructions": "Default: bgi.sa",
+            "required": 0
+        },
+        {
+            "key": "field_footer_en_cr_label",
+            "label": "CR Label",
+            "name": "footer_cr_label",
+            "type": "text",
+            "instructions": "Default: CR No.",
+            "required": 0
+        },
+        {
+            "key": "field_footer_en_cr_number",
+            "label": "CR Number",
+            "name": "footer_cr_number",
+            "type": "text",
+            "instructions": "Default: 1234567890",
+            "required": 0
+        },
+        {
+            "key": "field_footer_en_misa_label",
+            "label": "MISA Label",
+            "name": "footer_misa_label",
+            "type": "text",
+            "instructions": "Default: MISA License No.",
+            "required": 0
+        },
+        {
+            "key": "field_footer_en_misa_number",
+            "label": "MISA License Number",
+            "name": "footer_misa_number",
+            "type": "text",
+            "instructions": "Default: 1234567890",
+            "required": 0
+        },
+        {
+            "key": "field_footer_en_copyright",
+            "label": "Copyright Text",
+            "name": "footer_copyright",
+            "type": "text",
+            "instructions": "Default: © 2026 BGI. All rights reserved.",
+            "required": 0
+        },
+        {
+            "key": "field_footer_en_madein",
+            "label": "Made In Note",
+            "name": "footer_madein",
+            "type": "text",
+            "instructions": "Default: Made in Saudi Arabia 🇸🇦",
+            "required": 0
+        },
+        {
+            "key": "field_footer_en_wa_num",
+            "label": "WhatsApp Number",
+            "name": "whatsapp_number",
+            "type": "text",
+            "instructions": "International format without '+' (e.g. 966559608939)",
+            "required": 0
+        },
+        {
+            "key": "field_footer_en_wa_msg",
+            "label": "WhatsApp Pre-filled Message",
+            "name": "whatsapp_message",
+            "type": "textarea",
+            "instructions": "Pre-filled message when clicking WhatsApp floating button",
+            "required": 0,
+            "rows": 2
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "bgi-settings-en"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1791868400
+}
