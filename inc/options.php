@@ -95,3 +95,22 @@ function bgi_opt( $field, $fallback = null ) {
 
 	return $fallback;
 }
+
+add_filter( 'acf/json/save_file_name', 'bgi_acf_json_file_name', 10, 3 );
+/**
+ * Keep a field group's JSON file name when it is saved from the dashboard.
+ *
+ * ACF names files after the group key by default, which would write a second file
+ * beside any that has been given a readable name.
+ *
+ * @param string $filename  The default file name, "{group key}.json".
+ * @param array  $post      The field group being saved.
+ * @param string $load_path The path the group was loaded from, if any.
+ * @return string
+ */
+function bgi_acf_json_file_name( $filename, $post, $load_path ) {
+	if ( is_string( $load_path ) && '' !== $load_path ) {
+		return basename( $load_path );
+	}
+	return $filename;
+}
