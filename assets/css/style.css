@@ -2225,3 +2225,18 @@ a.lang-toggle {
 .footer-contact-reg + .footer-contact-reg {
     margin-top: 2px;
 }
+
+/* ---------- Journey block (inline styles in the source) ---------- */
+.journey-heading {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.12;
+    margin-bottom: 18px;
+}
+
+.journey-intro {
+    color: var(--muted-c);
+    margin-bottom: 36px;
+}

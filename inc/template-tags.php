@@ -162,3 +162,13 @@ function bgi_get_image_data( $image ) {
 
 	return null;
 }
+
+/**
+ * Escape a heading and turn *starred* phrases into the gold highlight used in the design.
+ *
+ * @param string $text Plain text, optionally with phrases wrapped in asterisks.
+ * @return string Safe HTML containing only <span class="gold"> elements.
+ */
+function bgi_highlight( $text ) {
+	return preg_replace( '/[*]([^*]+)[*]/', '<span class="gold">$1</span>', esc_html( (string) $text ) );
+}
