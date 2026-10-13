@@ -1,0 +1,8 @@
+/* The editor canvas grows with its content, so a viewport-height hero would never settle. */
+.hero {
+    min-height: 640px;
+}
+
+.hero-content {
+    padding-top: 120px;
+}

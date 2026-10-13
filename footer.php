@@ -13,10 +13,10 @@ $bgi_footer_logo = bgi_opt( 'footer_logo', bgi_opt( 'logo' ) );
 $bgi_tagline     = bgi_opt( 'footer_tagline', __( "We don't capture spaces. We turn them into performance assets.", 'bgi' ) );
 $bgi_domain      = bgi_opt( 'footer_domain', 'bgi.sa' );
 $bgi_email       = sanitize_email( bgi_opt( 'footer_email', 'wael@bgi.sa' ) );
-$bgi_cr_label    = bgi_opt( 'footer_cr_label', __( 'CR No.', 'bgi' ) );
-$bgi_cr_number   = bgi_opt( 'footer_cr_number', '' );
-$bgi_misa_label  = bgi_opt( 'footer_misa_label', __( 'MISA License No.', 'bgi' ) );
-$bgi_misa_number = bgi_opt( 'footer_misa_number', '' );
+$bgi_cr_label    = trim( (string) bgi_opt( 'footer_cr_label', __( 'CR No.', 'bgi' ) ) );
+$bgi_cr_number   = trim( (string) bgi_opt( 'footer_cr_number', '' ) );
+$bgi_misa_label  = trim( (string) bgi_opt( 'footer_misa_label', __( 'MISA License No.', 'bgi' ) ) );
+$bgi_misa_number = trim( (string) bgi_opt( 'footer_misa_number', '' ) );
 $bgi_madein      = bgi_opt( 'footer_madein', __( 'Made in Saudi Arabia 🇸🇦', 'bgi' ) );
 
 /* translators: %s: current year. */
@@ -43,10 +43,10 @@ $bgi_wa_url     = 'https://wa.me/' . $bgi_wa_number . '?text=' . rawurlencode( $
 					<div class="footer-contact-email"><a href="<?php echo esc_url( 'mailto:' . $bgi_email ); ?>"><?php echo esc_html( $bgi_email ); ?></a></div>
 				<?php endif; ?>
 				<?php if ( $bgi_cr_number ) : ?>
-					<div class="footer-contact-reg"><?php echo esc_html( $bgi_cr_label ); ?> <?php echo esc_html( $bgi_cr_number ); ?></div>
+					<div class="footer-contact-reg"><span><?php echo esc_html( $bgi_cr_label ); ?></span> <?php echo esc_html( $bgi_cr_number ); ?></div>
 				<?php endif; ?>
 				<?php if ( $bgi_misa_number ) : ?>
-					<div class="footer-contact-reg"><?php echo esc_html( $bgi_misa_label ); ?> <?php echo esc_html( $bgi_misa_number ); ?></div>
+					<div class="footer-contact-reg"><span><?php echo esc_html( $bgi_misa_label ); ?></span> <?php echo esc_html( $bgi_misa_number ); ?></div>
 				<?php endif; ?>
 			</div>
 		</div>

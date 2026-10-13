@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bgi/hero",
+	"title": "Hero",
+	"description": "Full-height hero with the 3D wireframe skyline, headline and two calls to action.",
+	"category": "bgi",
+	"icon": "cover-image",
+	"keywords": [ "hero", "banner", "headline", "bgi" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"customClassName": true,
+		"html": false,
+		"multiple": false
+	},
+	"editorStyle": "file:./editor.css",
+	"viewScript": "file:./script.js"
+}

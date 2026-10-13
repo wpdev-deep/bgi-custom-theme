@@ -80,7 +80,7 @@ $bgi_switcher  = bgi_get_language_switcher_data();
 
 			<div class="nav-actions">
 				<?php if ( $bgi_switcher['target_url'] ) : ?>
-					<a class="lang-toggle" id="langToggle" href="<?php echo esc_url( $bgi_switcher['target_url'] ); ?>" lang="<?php echo esc_attr( $bgi_switcher['target_slug'] ); ?>" hreflang="<?php echo esc_attr( $bgi_switcher['target_slug'] ); ?>">
+					<a class="lang-toggle" id="langToggle" href="<?php echo esc_url( $bgi_switcher['target_url'] ); ?>" hreflang="<?php echo esc_attr( $bgi_switcher['target_slug'] ); ?>">
 						<span id="langToggleLabel"><?php echo esc_html( $bgi_switcher['target_name'] ); ?></span>
 					</a>
 				<?php endif; ?>

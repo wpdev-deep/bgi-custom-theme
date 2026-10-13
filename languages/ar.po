@@ -15,10 +15,10 @@ msgid "Book a Demo"
 msgstr "احجز عرضاً تجريبياً"
 
 msgid "Let's show you what your property could look like."
-msgstr "دعنا نريك كيف يمكن أن يبدو عقارك."
+msgstr "دعنا نُريك كيف يمكن أن يبدو عقارك."
 
 msgid "Tell us a bit about your property and preferred time — we'll get back to you to confirm."
-msgstr "أخبرنا عن عقارك والوقت المفضل لديك — سنتواصل معك للتأكيد."
+msgstr "أخبرنا قليلاً عن عقارك والوقت المفضل لديك — وسنتواصل معك للتأكيد."
 
 msgid "Full Name"
 msgstr "الاسم الكامل"
@@ -27,10 +27,10 @@ msgid "Email Address"
 msgstr "البريد الإلكتروني"
 
 msgid "Property / Company Name"
-msgstr "اسم المنشأة / الشركة"
+msgstr "اسم العقار / الشركة"
 
 msgid "Preferred Date & Time"
-msgstr "التاريخ والوقت المفضل"
+msgstr "التاريخ والوقت المفضلان"
 
 msgid "e.g. Weekday afternoons"
 msgstr "مثال: فترات ما بعد الظهر"
@@ -42,7 +42,7 @@ msgid "Request Demo"
 msgstr "طلب عرض تجريبي"
 
 msgid "Thanks! Your demo request has been received — we'll be in touch to confirm a time."
-msgstr "شكراً لك! تم استلام طلبك — سنتواصل معك قريباً لتأكيد الموعد."
+msgstr "شكراً لك! تم استلام طلب العرض التجريبي — سنتواصل معك لتأكيد الموعد."
 
 msgid "Close"
 msgstr "إغلاق"

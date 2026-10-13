@@ -62,6 +62,18 @@ function bgi_fallback_site_icon() {
 	printf( '<link rel="apple-touch-icon" href="%s">' . "\n", esc_url( BGI_URI . '/assets/img/site-icon.png' ) );
 }
 
+add_action( 'init', 'bgi_disable_emoji_images' );
+/**
+ * Keep emoji as native text, as in the source design, instead of swapping them for Twemoji images.
+ *
+ * @return void
+ */
+function bgi_disable_emoji_images() {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
+}
+
 add_action( 'admin_notices', 'bgi_dependency_notice' );
 /**
  * Warn in the dashboard when a hard dependency is missing.
