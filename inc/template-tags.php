@@ -164,11 +164,12 @@ function bgi_get_image_data( $image ) {
 }
 
 /**
- * Escape a heading and turn *starred* phrases into the gold highlight used in the design.
+ * Escape a heading and turn *starred* phrases into the highlight used in the design.
  *
- * @param string $text Plain text, optionally with phrases wrapped in asterisks.
- * @return string Safe HTML containing only <span class="gold"> elements.
+ * @param string $text  Plain text, optionally with phrases wrapped in asterisks.
+ * @param string $class Class of the highlight span: "gold" for headings, "hl" for approach points.
+ * @return string Safe HTML containing only <span class="..."> elements.
  */
-function bgi_highlight( $text ) {
-	return preg_replace( '/[*]([^*]+)[*]/', '<span class="gold">$1</span>', esc_html( (string) $text ) );
+function bgi_highlight( $text, $class = 'gold' ) {
+	return preg_replace( '/[*]([^*]+)[*]/', '<span class="' . esc_attr( $class ) . '">$1</span>', esc_html( (string) $text ) );
 }

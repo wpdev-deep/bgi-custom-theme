@@ -2307,6 +2307,15 @@ section.alt .usecase-card:hover {
     z-index: 2;
 }
 
+/*
+ * The source sets will-change: transform on every .tilt card, so the browser keeps each card on
+ * its own layer. At the half-pixel card widths a 1px-gap grid produces, those layers cover the
+ * divider lines (seen in the Impact grid). Tilting still works without the hint.
+ */
+.tilt {
+    will-change: auto;
+}
+
 /* ---------- Mobile menu close button ---------- */
 /* The open panel sits above the header and covers the hamburger, so the panel has its own close button. */
 .mobile-menu-close {
@@ -2335,4 +2344,32 @@ section.alt .usecase-card:hover {
 /* In Arabic the closed-state rule above outranked .mobile-menu.open, so the panel never slid in. */
 html[dir="rtl"] .mobile-menu.open {
     transform: translateX(0);
+}
+
+/* ---------- Process block (inline styles in the source) ---------- */
+.process-footer {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.process-note {
+    justify-content: center;
+    text-align: center;
+    max-width: 640px;
+    margin-inline: auto;
+}
+
+/* ---------- Approach block (inline style in the source) ---------- */
+.approach-footer {
+    text-align: center;
+}
+
+/* ---------- Impact block (inline style in the source) ---------- */
+.impact-footer {
+    text-align: center;
+}
+
+/* ---------- Use Cases block (inline style in the source) ---------- */
+.usecases-footer {
+    text-align: center;
 }

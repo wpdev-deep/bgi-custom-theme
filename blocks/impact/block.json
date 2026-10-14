@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bgi/impact",
+	"title": "Impact",
+	"description": "Centred heading above a two-column grid of numbered outcome cards, with a closing line.",
+	"category": "bgi",
+	"icon": "chart-line",
+	"keywords": [ "impact", "outcomes", "results", "benefits", "grid", "bgi" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"customClassName": true,
+		"html": false
+	}
+}
