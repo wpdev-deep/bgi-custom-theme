@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bgi/frame-sequence",
+	"title": "Frame Sequence",
+	"description": "Full-screen stills that crossfade as the page scrolls, with a caption and a gold progress bar. Choose the Cinema (lobby) or Twin (corridor) style.",
+	"category": "bgi",
+	"icon": "images-alt2",
+	"keywords": [ "frame", "sequence", "scroll", "cinema", "twin", "images", "bgi" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"customClassName": true,
+		"html": false
+	},
+	"editorStyle": "file:./editor.css",
+	"viewScript": "file:./script.js"
+}

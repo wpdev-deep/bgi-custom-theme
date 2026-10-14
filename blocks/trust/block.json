@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bgi/trust",
+	"title": "Trust",
+	"description": "Centred heading and intro above a grid of client names with their location, and a closing line.",
+	"category": "bgi",
+	"icon": "awards",
+	"keywords": [ "trust", "clients", "brands", "logos", "grid", "bgi" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"customClassName": true,
+		"html": false
+	}
+}

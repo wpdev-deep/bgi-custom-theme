@@ -1,0 +1,124 @@
+{
+    "key": "group_bgi_frame_sequence",
+    "title": "Block: Frame Sequence",
+    "fields": [
+        {
+            "key": "field_bgi_frame_sequence_style",
+            "label": "Style",
+            "name": "style",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Cinema: the lobby push-in (shorter scroll). Twin: the corridor walkthrough (longer scroll, richer colour, with an eyebrow).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "cinema": "Cinema",
+                "twin": "Twin"
+            },
+            "default_value": "cinema",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_bgi_frame_sequence_eyebrow",
+            "label": "Eyebrow",
+            "name": "eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small line above the caption. Leave empty to hide it.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_bgi_frame_sequence_style",
+                        "operator": "==",
+                        "value": "twin"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "The Immersive Experience",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_bgi_frame_sequence_heading",
+            "label": "Caption",
+            "name": "heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Leave empty to use the caption from the design for the chosen style. Wrap a word or phrase in asterisks to colour it gold.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_bgi_frame_sequence_frames",
+            "label": "Frames",
+            "name": "frames",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "Shown full screen and crossfaded in this order as the page scrolls. Use images of the same size and framing. Leave empty to use the design's frames for the chosen style. Set the alt text in the media library.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "bgi-gallery-no-sort",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min": 0,
+            "max": 8,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg, jpeg, png, webp",
+            "insert": "append",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "bgi/frame-sequence"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1791903202
+}

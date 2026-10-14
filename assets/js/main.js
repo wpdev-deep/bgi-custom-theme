@@ -1,5 +1,5 @@
 /**
- * Global scripts for the BGI theme: preloader, cursor, sticky header, mobile menu, demo modal.
+ * Global scripts for the BGI theme: preloader, cursor, sticky header, mobile menu, reveal, tilt cards, demo modal.
  *
  * @package BGI
  */
@@ -125,6 +125,33 @@
 			} );
 		}
 	}
+
+	/* ==================== 3D TILT CARDS ==================== */
+	// Cards follow the pointer with a slight 3D tilt; a child .tilt-glare tracks it as a highlight.
+	document.querySelectorAll( '.client-card.tilt, .feature-card.tilt, .impact-card.tilt, .usecase-card.tilt' ).forEach( function ( el ) {
+		const max = 10;
+		const scale = 1.03;
+
+		el.addEventListener( 'mousemove', function ( e ) {
+			const rect = el.getBoundingClientRect();
+			if ( ! rect.width || ! rect.height ) {
+				return;
+			}
+			const px = ( e.clientX - rect.left ) / rect.width;
+			const py = ( e.clientY - rect.top ) / rect.height;
+			const rx = ( ( 0.5 - py ) * max ).toFixed( 2 );
+			const ry = ( ( px - 0.5 ) * max ).toFixed( 2 );
+			el.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale(' + scale + ')';
+			el.classList.add( 'tilting' );
+			el.style.setProperty( '--gx', ( px * 100 ).toFixed( 1 ) + '%' );
+			el.style.setProperty( '--gy', ( py * 100 ).toFixed( 1 ) + '%' );
+		} );
+
+		el.addEventListener( 'mouseleave', function () {
+			el.style.transform = '';
+			el.classList.remove( 'tilting' );
+		} );
+	} );
 
 	/* ==================== DEMO MODAL ==================== */
 	const demoOverlay = document.getElementById( 'demoOverlay' );
