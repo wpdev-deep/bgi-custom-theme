@@ -1,0 +1,11 @@
+/* The editor canvas grows with its content and the scroll script does not run there, so show one still screen. */
+.cinema-wrap,
+.twin-wrap {
+    height: auto;
+}
+
+.cinema-stage,
+.twin-stage {
+    position: relative;
+    height: 560px;
+}

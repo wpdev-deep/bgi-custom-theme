@@ -1349,6 +1349,8 @@ body.lang-ar .section-head h2 {
     position: sticky;
     top: 0;
     height: 100vh;
+    /* On phones, the screen left visible by the browser toolbars, so the caption is never hidden behind them. */
+    height: 100svh;
     overflow: hidden;
 }
 
@@ -1422,6 +1424,8 @@ body.lang-ar .cinema-caption h3 {
     position: sticky;
     top: 0;
     height: 100vh;
+    /* On phones, the screen left visible by the browser toolbars, so the caption is never hidden behind them. */
+    height: 100svh;
     overflow: hidden;
 }
 
@@ -1486,9 +1490,11 @@ body.lang-ar .twin-caption h3 {
 }
 
 /* ---------- Trust / clients grid ---------- */
+/* Flex rather than grid so a short last row stretches to the full width instead of leaving gaps. */
 .client-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    --client-cols: 4;
+    display: flex;
+    flex-wrap: wrap;
     gap: 1px;
     background: var(--line-c);
     border: 1px solid var(--line-c);
@@ -1497,6 +1503,8 @@ body.lang-ar .twin-caption h3 {
 }
 
 .client-card {
+    /* The basis leaves a pixel spare so rounding never wraps a full row early; flex-grow takes it back. */
+    flex: 1 1 calc(100% / var(--client-cols) - 1px);
     padding: 30px 18px;
     text-align: center;
     background: var(--black);
@@ -1535,9 +1543,11 @@ section.alt .client-card {
 }
 
 /* ---------- Feature grid ---------- */
+/* Flex like the client grid, so an odd last card spans the full width instead of leaving a gap. */
 .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    --feature-cols: 2;
+    display: flex;
+    flex-wrap: wrap;
     gap: 1px;
     background: var(--line-c);
     border: 1px solid var(--line-c);
@@ -1546,6 +1556,7 @@ section.alt .client-card {
 }
 
 .feature-card {
+    flex: 1 1 calc(100% / var(--feature-cols) - 1px);
     background: var(--black);
     padding: 36px 32px;
     transition: background .25s ease, color .25s ease;
@@ -2078,11 +2089,11 @@ footer {
     }
 
     .client-grid {
-        grid-template-columns: repeat(2, 1fr);
+        --client-cols: 2;
     }
 
     .feature-grid {
-        grid-template-columns: 1fr;
+        --feature-cols: 1;
     }
 
     .impact-grid {
@@ -2146,7 +2157,7 @@ footer {
 
 @media (max-width:600px) {
     .client-grid {
-        grid-template-columns: 1fr 1fr;
+        --client-cols: 2;
     }
 
     .usecase-grid {
@@ -2239,4 +2250,14 @@ a.lang-toggle {
 .journey-intro {
     color: var(--muted-c);
     margin-bottom: 36px;
+}
+
+/* ---------- Trust block (inline styles in the source) ---------- */
+.section-head.center .eyebrow {
+    justify-content: center;
+}
+
+.trust-footer {
+    text-align: center;
+    font-size: 1rem;
 }
