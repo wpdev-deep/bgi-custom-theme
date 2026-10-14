@@ -33,6 +33,7 @@ $bgi_switcher  = bgi_get_language_switcher_data();
 
 <div class="menu-overlay" id="menuOverlay"></div>
 <div class="mobile-menu" id="mobileMenu">
+	<button type="button" class="mobile-menu-close" id="mobileMenuClose" aria-label="<?php esc_attr_e( 'Close menu', 'bgi' ); ?>">&times;</button>
 	<?php bgi_nav_menu( 'primary' ); ?>
 	<button type="button" class="btn btn-primary" data-bgi-demo-open><?php echo esc_html( $bgi_cta_label ); ?></button>
 </div>

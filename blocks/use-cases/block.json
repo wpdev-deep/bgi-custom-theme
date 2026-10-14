@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bgi/use-cases",
+	"title": "Use Cases",
+	"description": "Centred heading above a four-column grid of use-case cards, each with an icon, and a closing line.",
+	"category": "bgi",
+	"icon": "screenoptions",
+	"keywords": [ "use cases", "usecases", "solutions", "icons", "grid", "bgi" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"customClassName": true,
+		"html": false
+	}
+}

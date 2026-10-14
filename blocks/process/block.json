@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bgi/process",
+	"title": "Process",
+	"description": "Centred heading above a row of numbered steps joined by a line, with a closing line and a note.",
+	"category": "bgi",
+	"icon": "editor-ol",
+	"keywords": [ "process", "steps", "timeline", "how we work", "bgi" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"customClassName": true,
+		"html": false
+	}
+}

@@ -2233,7 +2233,7 @@ a.lang-toggle {
     margin-top: 14px;
 }
 
-.footer-contact-reg + .footer-contact-reg {
+.footer-contact-reg+.footer-contact-reg {
     margin-top: 2px;
 }
 
@@ -2260,4 +2260,116 @@ a.lang-toggle {
 .trust-footer {
     text-align: center;
     font-size: 1rem;
+}
+
+/* ---------- Responsive fixes (not in the source design) ---------- */
+/*
+ * .hero-content and the two frame-sequence captions also carry .container, but their
+ * "padding: X 0" shorthand removes the container's 32px side padding. Above 1284px the
+ * centred 1220px box still leaves a margin; below it the text met the screen edge.
+ * Restoring the side padding only below that width keeps wide screens exactly as designed.
+ */
+@media (max-width: 1283px) {
+
+    .hero-content,
+    .cinema-caption,
+    .twin-caption {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+/* The header subtitle wraps and crowds the language button on small phones; the footer keeps it. */
+@media (max-width: 400px) {
+    #siteHeader .logo-sub {
+        display: none;
+    }
+}
+
+/* ---------- Hover fixes (not in the source design) ---------- */
+/*
+ * On light and alternate sections the card background rule outranked :hover, so hovering
+ * only darkened the text and the number while the card stayed cream.
+ */
+section.light .client-card:hover,
+section.alt .client-card:hover,
+section.light .feature-card:hover,
+section.alt .feature-card:hover,
+section.light .impact-card:hover,
+section.alt .impact-card:hover,
+section.light .usecase-card:hover,
+section.alt .usecase-card:hover {
+    background: var(--gold);
+}
+
+/* A tilted card is enlarged by 3%; lift it above its neighbours so it no longer slides under them. */
+.tilt.tilting {
+    z-index: 2;
+}
+
+/*
+ * The source sets will-change: transform on every .tilt card, so the browser keeps each card on
+ * its own layer. At the half-pixel card widths a 1px-gap grid produces, those layers cover the
+ * divider lines (seen in the Impact grid). Tilting still works without the hint.
+ */
+.tilt {
+    will-change: auto;
+}
+
+/* ---------- Mobile menu close button ---------- */
+/* The open panel sits above the header and covers the hamburger, so the panel has its own close button. */
+.mobile-menu-close {
+    align-self: flex-end;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    margin-bottom: -6px;
+    border: 1px solid var(--line);
+    background: var(--black-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--muted);
+    transition: border-color .25s ease, color .25s ease;
+}
+
+.mobile-menu-close:hover,
+.mobile-menu-close:focus-visible {
+    border-color: var(--gold);
+    color: var(--gold-light);
+}
+
+/* In Arabic the closed-state rule above outranked .mobile-menu.open, so the panel never slid in. */
+html[dir="rtl"] .mobile-menu.open {
+    transform: translateX(0);
+}
+
+/* ---------- Process block (inline styles in the source) ---------- */
+.process-footer {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.process-note {
+    justify-content: center;
+    text-align: center;
+    max-width: 640px;
+    margin-inline: auto;
+}
+
+/* ---------- Approach block (inline style in the source) ---------- */
+.approach-footer {
+    text-align: center;
+}
+
+/* ---------- Impact block (inline style in the source) ---------- */
+.impact-footer {
+    text-align: center;
+}
+
+/* ---------- Use Cases block (inline style in the source) ---------- */
+.usecases-footer {
+    text-align: center;
 }
