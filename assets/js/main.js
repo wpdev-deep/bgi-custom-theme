@@ -96,6 +96,22 @@
 			setMenu( ! mobileMenu.classList.contains( 'open' ) );
 		} );
 		menuOverlay.addEventListener( 'click', closeMenu );
+
+		// The open panel covers the hamburger, so it carries its own close button.
+		const mobileMenuClose = document.getElementById( 'mobileMenuClose' );
+		if ( mobileMenuClose ) {
+			mobileMenuClose.addEventListener( 'click', function () {
+				closeMenu();
+				hamburgerBtn.focus();
+			} );
+		}
+
+		window.addEventListener( 'keydown', function ( e ) {
+			if ( 'Escape' === e.key && mobileMenu.classList.contains( 'open' ) ) {
+				closeMenu();
+				hamburgerBtn.focus();
+			}
+		} );
 		mobileMenu.querySelectorAll( 'a' ).forEach( function ( a ) {
 			a.addEventListener( 'click', closeMenu );
 		} );

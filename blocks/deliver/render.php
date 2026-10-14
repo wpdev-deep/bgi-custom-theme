@@ -98,7 +98,7 @@ $bgi_gold   = array( 'span' => array( 'class' => array() ) );
 		<?php endif; ?>
 
 		<?php if ( $bgi_note ) : ?>
-			<p class="section-note"><span aria-hidden="true">📍</span><span><?php echo esc_html( $bgi_note ); ?></span></p>
+			<p class="section-note"><?php echo esc_html( '📍 ' . $bgi_note ); ?></p>
 		<?php endif; ?>
 	</div>
 </section>

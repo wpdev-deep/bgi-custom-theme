@@ -130,3 +130,51 @@ msgstr "اخلق تفاعلاً قابلاً للقياس يقود القرار.
 
 msgid "Hospitality property facade"
 msgstr "واجهة منشأة ضيافة"
+
+msgid "Al Mouj Muscat"
+msgstr "الموج مسقط"
+
+msgid "A Ritz-Carlton Hotel"
+msgstr "ريتز كارلتون"
+
+msgid "Ghala Muscat"
+msgstr "غلا مسقط"
+
+msgid "IHG"
+msgstr "آي إتش جي"
+
+msgid "Muscat OCEC"
+msgstr "مسقط"
+
+msgid "Hotel & Resorts"
+msgstr "فنادق ومنتجعات"
+
+msgid "Restaurant"
+msgstr "مطعم"
+
+msgid "Immersive Experience"
+msgstr "التجربة الغامرة"
+
+msgid "Explore your property remotely, increasing pre-arrival engagement."
+msgstr "استكشف عقارك عن بُعد، مما يعزز التفاعل قبل الوصول."
+
+msgid "Immerse guests and accelerate decision-making before arrival."
+msgstr "أشعر ضيوفك بالانغماس وسرّع قرارهم قبل الوصول."
+
+msgid "Interactive Experiences"
+msgstr "تجارب تفاعلية"
+
+msgid "Guide users with purpose and influence their journey."
+msgstr "وجّه المستخدمين بهدف وأثّر في رحلتهم."
+
+msgid "Understand how your spaces perform and where value is created."
+msgstr "افهم كيف تؤدي مساحاتك وأين تُخلق القيمة."
+
+msgid "One continuous scroll — from the entrance to every corner your guests will remember."
+msgstr "مشهد تمرير واحد متصل — من المدخل إلى كل زاوية سيتذكرها ضيوفك."
+
+msgid "Every property has two versions. We build the one that never stops working for you."
+msgstr "لكل عقار نسختان. نحن نبني النسخة التي لا تتوقف عن العمل من أجلك."
+
+msgid "Close menu"
+msgstr "إغلاق القائمة"
