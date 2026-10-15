@@ -2538,3 +2538,24 @@ body.lang-ar .legal-hero h1 {
         padding: 130px 0 40px;
     }
 }
+
+/*
+ * Arabic marquee. In right-to-left pages the track is anchored to the right edge and overflows to
+ * the left, so the source's reversed left-hand animation slid it off screen and left the strip empty
+ * for most of each cycle. It now moves right by half its width, which keeps the strip filled and
+ * loops seamlessly, with new keywords entering from the left as Arabic reads.
+ */
+@keyframes marquee-rtl {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(50%);
+    }
+}
+
+html[dir="rtl"] .marquee-track {
+    animation-name: marquee-rtl;
+    animation-direction: normal;
+}
