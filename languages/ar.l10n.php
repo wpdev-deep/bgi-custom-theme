@@ -98,5 +98,8 @@ return array(
 		'Convert interest into bookings.' => 'حوّل الاهتمام إلى حجوزات.',
 		'Operations' => 'العمليات',
 		'Train teams and optimize performance.' => 'درّب فرقك وحسّن الأداء.',
+		'Email' => 'البريد الإلكتروني',
+		'Phone' => 'الهاتف',
+		'Website' => 'الموقع الإلكتروني',
 	),
 );

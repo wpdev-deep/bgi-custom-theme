@@ -2135,10 +2135,6 @@ footer {
     color: var(--gold-light);
 }
 
-.contact-form .wpcf7-submit {
-  width: 100%;
-}
-
 /* ---------- Responsive ---------- */
 @media (max-width:980px) {
     .nav-links {
@@ -2442,4 +2438,12 @@ html[dir="rtl"] .mobile-menu.open {
 /* ---------- Use Cases block (inline style in the source) ---------- */
 .usecases-footer {
     text-align: center;
+}
+
+/*
+ * Contact Form 7 message box: the forms ask for three rows, which in Poppins comes to 102px.
+ * The design's box is the 100px minimum height.
+ */
+.wpcf7 .form-group textarea {
+    height: 100px;
 }
