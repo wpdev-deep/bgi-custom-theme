@@ -30,6 +30,45 @@
             "type": "text",
             "instructions": "الافتراضي: احجز عرضاً تجريبياً",
             "required": 0
+        },
+        {
+            "key": "field_header_ar_demo_eyebrow",
+            "label": "Demo Modal Eyebrow (عنوان نافذة العرض التجريبي الصغير)",
+            "name": "demo_eyebrow",
+            "type": "text",
+            "instructions": "الافتراضي: احجز عرضاً تجريبياً",
+            "required": 0
+        },
+        {
+            "key": "field_header_ar_demo_heading",
+            "label": "Demo Modal Heading (عنوان نافذة العرض التجريبي)",
+            "name": "demo_heading",
+            "type": "text",
+            "instructions": "الافتراضي: دعنا نُريك كيف يمكن أن يبدو عقارك.",
+            "required": 0
+        },
+        {
+            "key": "field_header_ar_demo_sub",
+            "label": "Demo Modal Intro (مقدمة نافذة العرض التجريبي)",
+            "name": "demo_sub",
+            "type": "textarea",
+            "instructions": "الافتراضي: أخبرنا قليلاً عن عقارك والوقت المفضل لديك — وسنتواصل معك للتأكيد.",
+            "required": 0,
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_header_ar_demo_form",
+            "label": "Demo Modal Form (نموذج العرض التجريبي)",
+            "name": "demo_form",
+            "type": "post_object",
+            "instructions": "نموذج من Contact ← Contact Forms. الافتراضي: Book a Demo (AR).",
+            "required": 0,
+            "post_type": [ "wpcf7_contact_form" ],
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 1,
+            "ui": 1
         }
     ],
     "location": [
@@ -49,5 +88,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1791868450
+    "modified": 1792052400
 }

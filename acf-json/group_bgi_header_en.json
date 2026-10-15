@@ -30,6 +30,45 @@
             "type": "text",
             "instructions": "Default: Book a Demo",
             "required": 0
+        },
+        {
+            "key": "field_header_en_demo_eyebrow",
+            "label": "Demo Modal Eyebrow",
+            "name": "demo_eyebrow",
+            "type": "text",
+            "instructions": "Default: Book a Demo",
+            "required": 0
+        },
+        {
+            "key": "field_header_en_demo_heading",
+            "label": "Demo Modal Heading",
+            "name": "demo_heading",
+            "type": "text",
+            "instructions": "Default: Let's show you what your property could look like.",
+            "required": 0
+        },
+        {
+            "key": "field_header_en_demo_sub",
+            "label": "Demo Modal Intro",
+            "name": "demo_sub",
+            "type": "textarea",
+            "instructions": "Default: Tell us a bit about your property and preferred time — we'll get back to you to confirm.",
+            "required": 0,
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_header_en_demo_form",
+            "label": "Demo Modal Form",
+            "name": "demo_form",
+            "type": "post_object",
+            "instructions": "A form from Contact → Contact Forms. Default: Book a Demo (EN).",
+            "required": 0,
+            "post_type": [ "wpcf7_contact_form" ],
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 1,
+            "ui": 1
         }
     ],
     "location": [
@@ -49,5 +88,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1791868450
+    "modified": 1792052400
 }

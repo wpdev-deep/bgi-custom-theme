@@ -11,6 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $bgi_cta_label = bgi_opt( 'cta_text', __( 'Book a Demo', 'bgi' ) );
 $bgi_switcher  = bgi_get_language_switcher_data();
+
+$bgi_demo_form_id = bgi_demo_form_id();
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -44,30 +46,9 @@ $bgi_switcher  = bgi_get_language_switcher_data();
 	<div class="eyebrow"><?php echo esc_html( bgi_opt( 'demo_eyebrow', __( 'Book a Demo', 'bgi' ) ) ); ?></div>
 	<h2 id="demoModalTitle"><?php echo esc_html( bgi_opt( 'demo_heading', __( "Let's show you what your property could look like.", 'bgi' ) ) ); ?></h2>
 	<p class="demo-modal-sub"><?php echo esc_html( bgi_opt( 'demo_sub', __( "Tell us a bit about your property and preferred time — we'll get back to you to confirm.", 'bgi' ) ) ); ?></p>
-	<form id="demoForm">
-		<div class="form-group">
-			<label for="dm-name"><?php esc_html_e( 'Full Name', 'bgi' ); ?></label>
-			<input type="text" id="dm-name" name="name" autocomplete="name" required>
-		</div>
-		<div class="form-group">
-			<label for="dm-email"><?php esc_html_e( 'Email Address', 'bgi' ); ?></label>
-			<input type="email" id="dm-email" name="email" autocomplete="email" required>
-		</div>
-		<div class="form-group">
-			<label for="dm-property"><?php esc_html_e( 'Property / Company Name', 'bgi' ); ?></label>
-			<input type="text" id="dm-property" name="property" autocomplete="organization" required>
-		</div>
-		<div class="form-group">
-			<label for="dm-time"><?php esc_html_e( 'Preferred Date & Time', 'bgi' ); ?></label>
-			<input type="text" id="dm-time" name="preferred_time" placeholder="<?php esc_attr_e( 'e.g. Weekday afternoons', 'bgi' ); ?>">
-		</div>
-		<div class="form-group">
-			<label for="dm-message"><?php esc_html_e( 'Message', 'bgi' ); ?></label>
-			<textarea id="dm-message" name="message"></textarea>
-		</div>
-		<button type="submit" class="btn btn-primary btn-block"><?php esc_html_e( 'Request Demo', 'bgi' ); ?></button>
-		<p class="form-note" id="demoFormNote"><?php esc_html_e( "Thanks! Your demo request has been received — we'll be in touch to confirm a time.", 'bgi' ); ?></p>
-	</form>
+	<?php if ( $bgi_demo_form_id ) : ?>
+		<?php echo do_shortcode( sprintf( '[contact-form-7 id="%d" html_id="demoForm"]', $bgi_demo_form_id ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Markup built and escaped by Contact Form 7. ?>
+	<?php endif; ?>
 </div>
 
 <header id="siteHeader">
