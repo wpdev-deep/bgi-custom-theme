@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bgi/about",
+	"title": "About",
+	"description": "Centred heading and intro paragraph above a quote with the speaker's name and title.",
+	"category": "bgi",
+	"icon": "groups",
+	"keywords": [ "about", "who we are", "team", "quote", "founder", "bgi" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"customClassName": true,
+		"html": false
+	}
+}

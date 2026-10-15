@@ -2018,6 +2018,72 @@ body.lang-ar .contact-info h2 {
     color: var(--gold-light);
 }
 
+/* Contact Form 7 forms: the Contact block and the "Book a Demo" modal */
+.wpcf7 .wpcf7-form-control-wrap {
+    display: block;
+}
+
+.wpcf7 .form-group .wpcf7-not-valid {
+    border-bottom-color: #e07a6a;
+}
+
+.wpcf7 .wpcf7-not-valid-tip {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: #e07a6a;
+}
+
+.wpcf7 .form-submit {
+    position: relative;
+}
+
+.wpcf7 .wpcf7-submit {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.wpcf7 .form-submit .wpcf7-submit:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.wpcf7 .form-submit .wpcf7-spinner {
+    position: absolute;
+    top: 50%;
+    inset-inline-end: 16px;
+    margin: -12px 0 0;
+    background-color: #0a0700;
+}
+
+.wpcf7 form.wpcf7-form .wpcf7-response-output {
+    margin: 18px 0 0;
+    padding: 0;
+    border: none;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.wpcf7 form.wpcf7-form.sent .wpcf7-response-output {
+    color: var(--gold-light);
+}
+
+.wpcf7 form.wpcf7-form.failed .wpcf7-response-output,
+.wpcf7 form.wpcf7-form.aborted .wpcf7-response-output,
+.wpcf7 form.wpcf7-form.spam .wpcf7-response-output,
+.wpcf7 form.wpcf7-form.invalid .wpcf7-response-output,
+.wpcf7 form.wpcf7-form.unaccepted .wpcf7-response-output {
+    color: #e07a6a;
+}
+
+.contact-form-empty {
+    padding: 40px 24px;
+    border: 1px dashed var(--line);
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
 /* ---------- Footer ---------- */
 footer {
     position: relative;
@@ -2067,6 +2133,10 @@ footer {
 
 .footer-legal a:hover {
     color: var(--gold-light);
+}
+
+.contact-form .wpcf7-submit {
+  width: 100%;
 }
 
 /* ---------- Responsive ---------- */

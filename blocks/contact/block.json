@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bgi/contact",
+	"title": "Contact",
+	"description": "Heading and contact details beside a Contact Form 7 form.",
+	"category": "bgi",
+	"icon": "email-alt",
+	"keywords": [ "contact", "form", "enquiry", "email", "phone", "contact form 7", "bgi" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"customClassName": true,
+		"html": false
+	}
+}

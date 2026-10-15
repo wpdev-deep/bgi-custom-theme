@@ -223,16 +223,9 @@
 		}
 	} );
 
-	// Placeholder until the form handler exists: nothing is sent to the server yet.
-	const demoForm = document.getElementById( 'demoForm' );
-	if ( demoForm ) {
-		demoForm.addEventListener( 'submit', function ( e ) {
-			e.preventDefault();
-			const note = document.getElementById( 'demoFormNote' );
-			if ( note ) {
-				note.classList.add( 'show' );
-			}
-			demoForm.reset();
+	// Contact Form 7 sends the demo form; once it has gone, let the thank-you show briefly, then close.
+	if ( demoModal ) {
+		demoModal.addEventListener( 'wpcf7mailsent', function () {
 			setTimeout( closeDemoModal, 1800 );
 		} );
 	}
