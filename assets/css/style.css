@@ -2612,3 +2612,18 @@ html[dir="rtl"] .marquee-track {
 .demo-modal-close {
     transition: border-color .25s ease, color .25s ease;
 }
+
+/*
+ * Footer on phones. The brand and contact blocks stack once the screen is too narrow for both, but the
+ * contact block kept its right alignment and floated in the middle. Below 600px they stack on purpose and
+ * the contact details line up with the rest of the footer (left in English, right in Arabic).
+ */
+@media (max-width: 600px) {
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-contact {
+        text-align: start;
+    }
+}
