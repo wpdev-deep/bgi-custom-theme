@@ -265,3 +265,18 @@ msgstr "العمليات"
 
 msgid "Train teams and optimize performance."
 msgstr "درّب فرقك وحسّن الأداء."
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Phone"
+msgstr "الهاتف"
+
+msgid "Website"
+msgstr "الموقع الإلكتروني"
+
+msgid "Legal"
+msgstr "قانوني"
+
+msgid "Last updated: %s"
+msgstr "آخر تحديث: %s"

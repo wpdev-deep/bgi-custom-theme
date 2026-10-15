@@ -33,27 +33,38 @@ if ( is_array( $bgi_rows ) ) {
 	}
 }
 
-// Until details are entered, show the three from the design.
+// Until details are entered, show the email, phone and domain from Site Settings, as the footer does.
 if ( empty( $bgi_items ) ) {
-	$bgi_items = array(
+	$bgi_domain = trim( (string) bgi_opt( 'footer_domain', 'bgi.sa' ) );
+	$bgi_items  = array(
 		array(
 			'icon'  => '✉️',
 			'label' => __( 'Email', 'bgi' ),
-			'value' => 'wael@bgi.sa',
+			'value' => sanitize_email( (string) bgi_opt( 'footer_email', 'wael@bgi.sa' ) ),
 			'link'  => '',
 		),
 		array(
 			'icon'  => '📞',
 			'label' => __( 'Phone', 'bgi' ),
-			'value' => '+966 55 960 8939',
+			'value' => trim( (string) bgi_opt( 'footer_phone', '+966 55 960 8939' ) ),
 			'link'  => '',
 		),
 		array(
 			'icon'  => '🌐',
 			'label' => __( 'Website', 'bgi' ),
-			'value' => 'bgi.sa',
-			'link'  => 'https://bgi.sa',
+			'value' => $bgi_domain,
+			'link'  => preg_match( '#^https?://#i', $bgi_domain ) ? $bgi_domain : 'https://' . $bgi_domain,
 		),
+	);
+
+	// Drop any detail Site Settings leaves empty.
+	$bgi_items = array_values(
+		array_filter(
+			$bgi_items,
+			function ( $bgi_item ) {
+				return '' !== $bgi_item['value'];
+			}
+		)
 	);
 }
 

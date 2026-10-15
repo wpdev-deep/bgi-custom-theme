@@ -1519,7 +1519,8 @@ section.alt .client-card {
     background: var(--black-2);
 }
 
-.client-card:hover {
+html:not(.bgi-tilt) .client-card:hover,
+.client-card.tilting {
     background: var(--gold);
     color: #0a0700;
 }
@@ -1538,7 +1539,8 @@ section.alt .client-card {
     margin-top: 6px;
 }
 
-.client-card:hover .cloc {
+html:not(.bgi-tilt) .client-card:hover .cloc,
+.client-card.tilting .cloc {
     color: #3a2f10;
 }
 
@@ -1572,7 +1574,8 @@ section.alt .feature-card {
     background: var(--black-2);
 }
 
-.feature-card:hover {
+html:not(.bgi-tilt) .feature-card:hover,
+.feature-card.tilting {
     background: var(--gold);
     color: #0a0700;
 }
@@ -1585,7 +1588,8 @@ section.alt .feature-card {
     min-width: 48px;
 }
 
-.feature-card:hover .feature-num {
+html:not(.bgi-tilt) .feature-card:hover .feature-num,
+.feature-card.tilting .feature-num {
     color: #0a0700;
 }
 
@@ -1604,7 +1608,8 @@ section.alt .feature-card {
     font-weight: 300;
 }
 
-.feature-card:hover p {
+html:not(.bgi-tilt) .feature-card:hover p,
+.feature-card.tilting p {
     color: #3a2f10;
 }
 
@@ -1743,7 +1748,8 @@ section.alt .impact-card {
     background: var(--black-2);
 }
 
-.impact-card:hover {
+html:not(.bgi-tilt) .impact-card:hover,
+.impact-card.tilting {
     background: var(--gold);
     color: #0a0700;
 }
@@ -1756,7 +1762,8 @@ section.alt .impact-card {
     font-weight: 600;
 }
 
-.impact-card:hover .num {
+html:not(.bgi-tilt) .impact-card:hover .num,
+.impact-card.tilting .num {
     color: #0a0700;
 }
 
@@ -1775,7 +1782,8 @@ section.alt .impact-card {
     font-weight: 300;
 }
 
-.impact-card:hover p {
+html:not(.bgi-tilt) .impact-card:hover p,
+.impact-card.tilting p {
     color: #3a2f10;
 }
 
@@ -1805,7 +1813,8 @@ section.alt .usecase-card {
     background: var(--black-2);
 }
 
-.usecase-card:hover {
+html:not(.bgi-tilt) .usecase-card:hover,
+.usecase-card.tilting {
     background: var(--gold);
     color: #0a0700;
 }
@@ -1822,7 +1831,8 @@ section.alt .usecase-card {
     font-size: 1.15rem;
 }
 
-.usecase-card:hover .usecase-icon {
+html:not(.bgi-tilt) .usecase-card:hover .usecase-icon,
+.usecase-card.tilting .usecase-icon {
     border-color: #0a0700;
 }
 
@@ -1841,7 +1851,8 @@ section.alt .usecase-card {
     font-weight: 300;
 }
 
-.usecase-card:hover p {
+html:not(.bgi-tilt) .usecase-card:hover p,
+.usecase-card.tilting p {
     color: #3a2f10;
 }
 
@@ -2135,10 +2146,6 @@ footer {
     color: var(--gold-light);
 }
 
-.contact-form .wpcf7-submit {
-  width: 100%;
-}
-
 /* ---------- Responsive ---------- */
 @media (max-width:980px) {
     .nav-links {
@@ -2361,20 +2368,23 @@ a.lang-toggle {
  * On light and alternate sections the card background rule outranked :hover, so hovering
  * only darkened the text and the number while the card stayed cream.
  */
-section.light .client-card:hover,
-section.alt .client-card:hover,
-section.light .feature-card:hover,
-section.alt .feature-card:hover,
-section.light .impact-card:hover,
-section.alt .impact-card:hover,
-section.light .usecase-card:hover,
-section.alt .usecase-card:hover {
+html:not(.bgi-tilt) section.light .client-card:hover,
+section.light .client-card.tilting,
+html:not(.bgi-tilt) section.alt .client-card:hover,
+section.alt .client-card.tilting,
+html:not(.bgi-tilt) section.light .feature-card:hover,
+section.light .feature-card.tilting,
+html:not(.bgi-tilt) section.alt .feature-card:hover,
+section.alt .feature-card.tilting,
+html:not(.bgi-tilt) section.light .impact-card:hover,
+section.light .impact-card.tilting,
+html:not(.bgi-tilt) section.alt .impact-card:hover,
+section.alt .impact-card.tilting,
+html:not(.bgi-tilt) section.light .usecase-card:hover,
+section.light .usecase-card.tilting,
+html:not(.bgi-tilt) section.alt .usecase-card:hover,
+section.alt .usecase-card.tilting {
     background: var(--gold);
-}
-
-/* A tilted card is enlarged by 3%; lift it above its neighbours so it no longer slides under them. */
-.tilt.tilting {
-    z-index: 2;
 }
 
 /*
@@ -2442,4 +2452,178 @@ html[dir="rtl"] .mobile-menu.open {
 /* ---------- Use Cases block (inline style in the source) ---------- */
 .usecases-footer {
     text-align: center;
+}
+
+/*
+ * Contact Form 7 message box: the forms ask for three rows, which in Poppins comes to 102px.
+ * The design's box is the 100px minimum height.
+ */
+.wpcf7 .form-group textarea {
+    height: 100px;
+}
+
+/* ---------- Legal pages (Legal page template; styles from privacy.html) ---------- */
+/* The source's inner pages set a narrower 820px column, taller line height and lighter body grey. */
+.legal-hero,
+.legal-content {
+    --container: 820px;
+    --muted: rgba(245, 243, 238, 0.68);
+    line-height: 1.75;
+}
+
+.legal-hero {
+    padding: 150px 0 50px;
+    border-bottom: 1px solid var(--line-soft);
+    background: radial-gradient(circle at 70% 20%, #171712 0%, #080807 70%);
+}
+
+.legal-hero .eyebrow {
+    margin-bottom: 18px;
+}
+
+.legal-hero h1 {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.6vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+body.lang-ar .legal-hero h1 {
+    font-family: var(--font-ar);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.legal-meta {
+    color: var(--muted-dim);
+    font-size: 0.86rem;
+}
+
+.legal-content {
+    padding: 64px 0 130px;
+}
+
+.legal-content h2 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    letter-spacing: 0.03em;
+    color: var(--gold-light);
+    margin: 46px 0 14px;
+    font-weight: 600;
+}
+
+.legal-content .container > h2:first-child {
+    margin-top: 0;
+}
+
+.legal-content p {
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-size: 0.98rem;
+}
+
+.legal-content ul {
+    margin: 0 0 16px;
+    padding-inline-start: 22px;
+    color: var(--muted);
+}
+
+.legal-content li {
+    margin-bottom: 8px;
+    font-size: 0.98rem;
+}
+
+.legal-content strong {
+    color: var(--white);
+    font-weight: 500;
+}
+
+/* Gutenberg adds no class to links, so every content link gets the source's a.inline style. */
+.legal-content a {
+    color: var(--gold-light);
+    border-bottom: 1px solid rgba(240, 215, 140, 0.4);
+}
+
+@media (max-width: 600px) {
+    .legal-hero {
+        padding: 130px 0 40px;
+    }
+}
+
+/*
+ * Arabic marquee. In right-to-left pages the track is anchored to the right edge and overflows to
+ * the left, so the source's reversed left-hand animation slid it off screen and left the strip empty
+ * for most of each cycle. It now moves right by half its width, which keeps the strip filled and
+ * loops seamlessly, with new keywords entering from the left as Arabic reads.
+ */
+@keyframes marquee-rtl {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(50%);
+    }
+}
+
+html[dir="rtl"] .marquee-track {
+    animation-name: marquee-rtl;
+    animation-direction: normal;
+}
+
+/* ---------- Smooth hover (not in the source design) ---------- */
+/*
+ * Where the tilt script runs (html.bgi-tilt is set), card hover colours follow its .tilting class,
+ * which tracks the pointer against each card's untransformed box. The browser's own :hover tests the
+ * tilted, enlarged card instead and flickers at its edges. Elsewhere (touch, no script) :hover is used.
+ */
+/*
+ * Tilt cards: the card itself stays flat and exactly fills its grid cell, so its hover colour never
+ * spills over the grid lines; the script tilts the card's content instead. The content follows the
+ * pointer with a short ease and eases back flat on leaving.
+ */
+.client-card.tilt,
+.feature-card.tilt,
+.impact-card.tilt,
+.usecase-card.tilt {
+    /* Flat, so the tilted content is drawn over the background instead of dipping behind it. */
+    transform-style: flat;
+    /* As in the source: the box colour fades, the text colour switches at once so it stays readable. */
+    transition: background-color .25s ease;
+}
+
+.client-card.tilt > :not(.tilt-glare),
+.feature-card.tilt > :not(.tilt-glare),
+.impact-card.tilt > :not(.tilt-glare),
+.usecase-card.tilt > :not(.tilt-glare) {
+    transition: transform .6s var(--ease);
+}
+
+.client-card.tilt.tilting > :not(.tilt-glare),
+.feature-card.tilt.tilting > :not(.tilt-glare),
+.impact-card.tilt.tilting > :not(.tilt-glare),
+.usecase-card.tilt.tilting > :not(.tilt-glare) {
+    transition: transform .15s ease-out;
+}
+
+.demo-modal-close {
+    transition: border-color .25s ease, color .25s ease;
+}
+
+/*
+ * Footer on phones. The brand and contact blocks stack once the screen is too narrow for both, but the
+ * contact block kept its right alignment and floated in the middle. Below 600px they stack on purpose and
+ * the contact details line up with the rest of the footer (left in English, right in Arabic).
+ */
+@media (max-width: 600px) {
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-contact {
+        text-align: start;
+    }
 }

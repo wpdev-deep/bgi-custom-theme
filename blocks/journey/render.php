@@ -93,16 +93,30 @@ $bgi_anchor = ! empty( $block['anchor'] ) ? $block['anchor'] : 'journey';
 				<?php
 				$bgi_image = '';
 				if ( $bgi_image_id ) {
+					/*
+					 * The image is cropped to fill a 440px-high frame (320px on tablets and phones), so a
+					 * landscape photo is drawn wider than the frame. Desktop: the larger of the frame's
+					 * width (about 490px) and 440px times the image's shape.
+					 */
+					$bgi_meta    = wp_get_attachment_metadata( $bgi_image_id );
+					$bgi_desktop = 580;
+					if ( ! empty( $bgi_meta['width'] ) && ! empty( $bgi_meta['height'] ) ) {
+						$bgi_desktop = max( 490, (int) round( 440 * $bgi_meta['width'] / $bgi_meta['height'] ) );
+					}
+
+					// WordPress would add "sizes=auto" to a lazy image, which sizes by the frame box, not the wider crop.
+					add_filter( 'wp_img_tag_add_auto_sizes', '__return_false' );
 					$bgi_image = wp_get_attachment_image(
 						$bgi_image_id,
-						'large',
+						'full',
 						false,
 						array(
 							'loading'  => 'lazy',
 							'decoding' => 'async',
-							'sizes'    => '(max-width: 980px) 100vw, 580px',
+							'sizes'    => '(max-width: 980px) 100vw, ' . $bgi_desktop . 'px',
 						)
 					);
+					remove_filter( 'wp_img_tag_add_auto_sizes', '__return_false' );
 				}
 
 				// No image chosen, or the stored one is not a usable image on this site: show the design's.
