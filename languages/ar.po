@@ -274,3 +274,9 @@ msgstr "الهاتف"
 
 msgid "Website"
 msgstr "الموقع الإلكتروني"
+
+msgid "Legal"
+msgstr "قانوني"
+
+msgid "Last updated: %s"
+msgstr "آخر تحديث: %s"
