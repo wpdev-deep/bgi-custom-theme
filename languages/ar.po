@@ -359,3 +359,23 @@ msgstr "العودة للرئيسية"
 
 msgid "Contact Us"
 msgstr "تواصل معنا"
+
+msgid "Search"
+msgstr "بحث"
+
+#. translators: %%s: the words searched for.
+msgid "Results for “%s”"
+msgstr "نتائج البحث عن «%s»"
+
+msgid "No articles match your search. Try other words."
+msgstr "لا توجد مقالات تطابق بحثك. جرّب كلمات أخرى."
+
+#. translators: %s: number of articles found.
+msgid "%s article found."
+msgid_plural "%s articles found."
+msgstr[0] "لا توجد مقالات."
+msgstr[1] "تم العثور على مقال واحد."
+msgstr[2] "تم العثور على مقالين."
+msgstr[3] "تم العثور على %s مقالات."
+msgstr[4] "تم العثور على %s مقالاً."
+msgstr[5] "تم العثور على %s مقال."

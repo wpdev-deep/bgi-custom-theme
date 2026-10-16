@@ -22,36 +22,7 @@ get_header();
 	</div>
 </section>
 
-<?php if ( have_posts() ) : ?>
-	<section class="blog-grid">
-		<?php
-		while ( have_posts() ) {
-			the_post();
-			get_template_part( 'template-parts/content-card' );
-		}
-		?>
-	</section>
-
-	<?php
-	$bgi_pagination = get_the_posts_pagination(
-		array(
-			'mid_size'           => 1,
-			'prev_text'          => __( 'Previous', 'bgi' ),
-			'next_text'          => __( 'Next', 'bgi' ),
-			'screen_reader_text' => __( 'More articles', 'bgi' ),
-		)
-	);
-	if ( $bgi_pagination ) {
-		echo '<div class="blog-pagination"><div class="container">' . bgi_localize_digits_html( $bgi_pagination ) . '</div></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Markup built and escaped by core.
-	}
-	?>
-<?php else : ?>
-	<section class="blog-list">
-		<div class="container">
-			<p class="blog-empty"><?php esc_html_e( 'No articles yet. Check back soon.', 'bgi' ); ?></p>
-		</div>
-	</section>
-<?php endif; ?>
+<?php get_template_part( 'template-parts/post-grid' ); ?>
 
 <?php
 get_footer();
