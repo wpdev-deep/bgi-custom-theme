@@ -28,8 +28,12 @@ $bgi_demo_form_id = bgi_demo_form_id();
 	<div class="preloader-bar"></div>
 </div>
 
-<div class="grain"></div>
-<div class="vignette"></div>
+<?php if ( ! is_404() ) : // The source's 404 page has no grain. ?>
+	<div class="grain"></div>
+<?php endif; ?>
+<?php if ( is_front_page() ) : // Only the home page darkens its edges; inner pages are lighter without it. ?>
+	<div class="vignette"></div>
+<?php endif; ?>
 <div class="cursor-ring" id="cursorRing"></div>
 <div class="cursor-dot" id="cursorDot"></div>
 

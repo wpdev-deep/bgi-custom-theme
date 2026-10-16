@@ -2454,50 +2454,6 @@ html[dir="rtl"] .mobile-menu.open {
     text-align: center;
 }
 
-/* ---------- Blog index ---------- */
-.bgi-blog-hero {
-    padding: clamp(72px, 10vw, 132px) 0 64px;
-    background: var(--bg, #10100f);
-    color: var(--text, #f3f0e8);
-}
-.bgi-blog-hero h1 {
-    max-width: 900px;
-    margin: 14px 0 16px;
-    font-size: clamp(3rem, 8vw, 7rem);
-    line-height: .98;
-    letter-spacing: -.055em;
-}
-.bgi-blog-intro { max-width: 560px; margin: 0; color: var(--muted, #aaa69d); font-size: 1.1rem; line-height: 1.7; }
-.bgi-blog-list { padding: 16px 0 100px; background: var(--bg, #10100f); color: var(--text, #f3f0e8); }
-.bgi-featured-post { display: grid; grid-template-columns: 1.15fr 1fr; min-height: 390px; margin-bottom: 64px; overflow: hidden; background: #191917; }
-.bgi-featured-image, .bgi-post-image { display: block; overflow: hidden; background: #24231f; }
-.bgi-featured-image img, .bgi-post-image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
-.bgi-featured-post:hover img, .bgi-post-card:hover img { transform: scale(1.035); }
-.bgi-featured-copy { align-self: center; padding: clamp(28px, 5vw, 64px); }
-.bgi-post-meta { margin: 0 0 16px; color: var(--accent, #c9a96e); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
-.bgi-featured-copy h2 { margin: 0 0 18px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.08; letter-spacing: -.035em; }
-.bgi-featured-copy h2 a, .bgi-post-card h2 a { color: inherit; text-decoration: none; }
-.bgi-featured-copy > p:not(.bgi-post-meta), .bgi-post-card-copy > p:not(.bgi-post-meta) { color: var(--muted, #aaa69d); line-height: 1.7; }
-.bgi-read-more { display: inline-flex; gap: 10px; align-items: center; margin-top: 14px; color: var(--accent, #c9a96e); font-size: .85rem; text-decoration: none; }
-.bgi-post-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
-.bgi-post-card { min-width: 0; background: #191917; }
-.bgi-post-image { aspect-ratio: 1.55; }
-.bgi-post-card-copy { padding: 26px; }
-.bgi-post-card h2 { margin: 0 0 12px; font-size: 1.4rem; line-height: 1.25; }
-.bgi-post-card-copy > p:not(.bgi-post-meta) { margin-bottom: 0; }
-.bgi-blog-pagination { display: flex; justify-content: center; gap: 10px; margin-top: 56px; }
-.bgi-blog-pagination .page-numbers { padding: 10px 14px; color: inherit; text-decoration: none; border: 1px solid rgba(255,255,255,.18); }
-.bgi-blog-pagination .current { color: #111; background: var(--accent, #c9a96e); border-color: var(--accent, #c9a96e); }
-@media (max-width: 760px) {
-    .bgi-featured-post { grid-template-columns: 1fr; }
-    .bgi-featured-image { aspect-ratio: 1.6; }
-    .bgi-post-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .bgi-post-card-copy { padding: 20px; }
-}
-@media (max-width: 520px) {
-    .bgi-post-grid { grid-template-columns: 1fr; }
-}
-
 /* ---------- Accessibility ---------- */
 .screen-reader-text {
     position: absolute;
@@ -2517,6 +2473,30 @@ html[dir="rtl"] .mobile-menu.open {
     padding: 150px 0 60px;
     border-bottom: 1px solid var(--line-soft);
     background: radial-gradient(circle at 70% 20%, #171712 0%, #080807 70%);
+}
+
+/*
+ * The source's blog pages use a lighter body grey than the home page and taller lines:
+ * 1.7 on the index (blog.html), 1.75 on articles (blog-*.html).
+ */
+.blog-hero,
+.blog-list,
+.blog-grid,
+.blog-pagination {
+    --muted: rgba(245, 243, 238, 0.68);
+    line-height: 1.7;
+}
+
+.article-hero,
+.article-body,
+.related {
+    --muted: rgba(245, 243, 238, 0.68);
+    line-height: 1.75;
+}
+
+.blog-hero .eyebrow,
+.article-hero .eyebrow {
+    margin-bottom: 18px;
 }
 
 .blog-hero .container {
@@ -2851,6 +2831,7 @@ body.lang-ar .article-body blockquote {
     font-style: italic;
     font-weight: 400;
     font-size: 1.4rem;
+    margin-top: 0;
     margin-bottom: 20px;
 }
 
@@ -2860,8 +2841,26 @@ body.lang-ar .article-cta h3 {
     font-weight: 700;
 }
 
-.article-cta .btn {
+/*
+ * The source's article button is plainer than the home page's: smaller padding, no shadow on hover,
+ * and it may wrap. It also keeps its dark text, which the content link colour above would replace.
+ */
+.article-body .article-cta .btn {
+    position: static;
+    overflow: visible;
+    justify-content: normal;
+    white-space: normal;
+    padding: 15px 30px;
+    line-height: inherit;
+    color: #0a0700;
     border-bottom: 0;
+    transition: transform .3s var(--ease), background .3s ease;
+}
+
+.article-body .article-cta .btn:hover {
+    background: var(--gold-light);
+    box-shadow: none;
+    transform: translateY(-3px);
 }
 
 .related {
@@ -2915,4 +2914,263 @@ body.lang-ar .related a {
     .article-hero {
         padding: 130px 0 34px;
     }
+}
+
+/*
+ * Contact Form 7 message box: the forms ask for three rows, which in Poppins comes to 102px.
+ * The design's box is the 100px minimum height.
+ */
+.wpcf7 .form-group textarea {
+    height: 100px;
+}
+
+/* ---------- Legal pages (Legal page template; styles from privacy.html) ---------- */
+/* The source's inner pages set a narrower 820px column, taller line height and lighter body grey. */
+.legal-hero,
+.legal-content {
+    --container: 820px;
+    --muted: rgba(245, 243, 238, 0.68);
+    line-height: 1.75;
+}
+
+.legal-hero {
+    padding: 150px 0 50px;
+    border-bottom: 1px solid var(--line-soft);
+    background: radial-gradient(circle at 70% 20%, #171712 0%, #080807 70%);
+}
+
+.legal-hero .eyebrow {
+    margin-bottom: 18px;
+}
+
+.legal-hero h1 {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.6vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+body.lang-ar .legal-hero h1 {
+    font-family: var(--font-ar);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.legal-meta {
+    color: var(--muted-dim);
+    font-size: 0.86rem;
+}
+
+.legal-content {
+    padding: 64px 0 130px;
+}
+
+.legal-content h2 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    letter-spacing: 0.03em;
+    color: var(--gold-light);
+    margin: 46px 0 14px;
+    font-weight: 600;
+}
+
+.legal-content .container > h2:first-child {
+    margin-top: 0;
+}
+
+.legal-content p {
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-size: 0.98rem;
+}
+
+.legal-content ul {
+    margin: 0 0 16px;
+    padding-inline-start: 22px;
+    color: var(--muted);
+}
+
+.legal-content li {
+    margin-bottom: 8px;
+    font-size: 0.98rem;
+}
+
+.legal-content strong {
+    color: var(--white);
+    font-weight: 500;
+}
+
+/* Gutenberg adds no class to links, so every content link gets the source's a.inline style. */
+.legal-content a {
+    color: var(--gold-light);
+    border-bottom: 1px solid rgba(240, 215, 140, 0.4);
+}
+
+@media (max-width: 600px) {
+    .legal-hero {
+        padding: 130px 0 40px;
+    }
+}
+
+/*
+ * Arabic marquee. In right-to-left pages the track is anchored to the right edge and overflows to
+ * the left, so the source's reversed left-hand animation slid it off screen and left the strip empty
+ * for most of each cycle. It now moves right by half its width, which keeps the strip filled and
+ * loops seamlessly, with new keywords entering from the left as Arabic reads.
+ */
+@keyframes marquee-rtl {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(50%);
+    }
+}
+
+html[dir="rtl"] .marquee-track {
+    animation-name: marquee-rtl;
+    animation-direction: normal;
+}
+
+/* ---------- Smooth hover (not in the source design) ---------- */
+/*
+ * Where the tilt script runs (html.bgi-tilt is set), card hover colours follow its .tilting class,
+ * which tracks the pointer against each card's untransformed box. The browser's own :hover tests the
+ * tilted, enlarged card instead and flickers at its edges. Elsewhere (touch, no script) :hover is used.
+ */
+/*
+ * Tilt cards: the card itself stays flat and exactly fills its grid cell, so its hover colour never
+ * spills over the grid lines; the script tilts the card's content instead. The content follows the
+ * pointer with a short ease and eases back flat on leaving.
+ */
+.client-card.tilt,
+.feature-card.tilt,
+.impact-card.tilt,
+.usecase-card.tilt {
+    /* Flat, so the tilted content is drawn over the background instead of dipping behind it. */
+    transform-style: flat;
+    /* As in the source: the box colour fades, the text colour switches at once so it stays readable. */
+    transition: background-color .25s ease;
+}
+
+.client-card.tilt > :not(.tilt-glare),
+.feature-card.tilt > :not(.tilt-glare),
+.impact-card.tilt > :not(.tilt-glare),
+.usecase-card.tilt > :not(.tilt-glare) {
+    transition: transform .6s var(--ease);
+}
+
+.client-card.tilt.tilting > :not(.tilt-glare),
+.feature-card.tilt.tilting > :not(.tilt-glare),
+.impact-card.tilt.tilting > :not(.tilt-glare),
+.usecase-card.tilt.tilting > :not(.tilt-glare) {
+    transition: transform .15s ease-out;
+}
+
+.demo-modal-close {
+    transition: border-color .25s ease, color .25s ease;
+}
+
+/*
+ * Footer on phones. The brand and contact blocks stack once the screen is too narrow for both, but the
+ * contact block kept its right alignment and floated in the middle. Below 600px they stack on purpose and
+ * the contact details line up with the rest of the footer (left in English, right in Arabic).
+ */
+@media (max-width: 600px) {
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-contact {
+        text-align: start;
+    }
+}
+
+/* ---------- 404 page (404.html) ---------- */
+/*
+ * The source centres the message in a full screen of its own. Here the same screen sits between the
+ * site header and footer; the fixed header floats over its top, as it does over the home hero.
+ */
+.error-404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    /*
+     * The source pads 32px. Equal top and bottom padding taller than the fixed header (95px) keeps the
+     * message centred on screen while stopping it from sliding under the header on short screens.
+     */
+    padding: 110px 32px;
+    text-align: center;
+    line-height: normal;
+    background: radial-gradient(circle at 62% 30%, #1c1c15 0%, #080807 62%);
+}
+
+.error-404-num {
+    font-weight: 700;
+    font-size: clamp(5rem, 16vw, 9rem);
+    line-height: 1;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+}
+
+.error-404 .eyebrow {
+    justify-content: center;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+}
+
+.error-404 h1 {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+body.lang-ar .error-404 h1 {
+    font-family: var(--font-ar);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.error-404 .sub {
+    color: var(--muted);
+    max-width: 440px;
+    margin: 0 auto 40px;
+    font-size: 1rem;
+}
+
+.error-404 .actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* The source's buttons on this page: smaller padding, no shadow, and they may wrap. */
+.error-404 .btn {
+    position: static;
+    overflow: visible;
+    justify-content: normal;
+    white-space: normal;
+    padding: 15px 30px;
+    line-height: inherit;
+    transition: transform .3s var(--ease), background .3s ease;
+}
+
+.error-404 .btn-primary:hover {
+    box-shadow: none;
+}
+
+.error-404 .btn-outline:hover {
+    background: none;
 }

@@ -85,3 +85,17 @@ function bgi_get_language_switcher_data() {
 
 	return $data;
 }
+
+add_filter( 'pll_copy_post_metas', 'bgi_pll_language_specific_metas' );
+/**
+ * Keep per-language custom fields out of Polylang's custom field sync.
+ *
+ * With "Custom fields" synchronisation on, saving one translation copies its fields to the others,
+ * so an Arabic breadcrumb label would replace the English one.
+ *
+ * @param string[] $metas Meta keys Polylang copies between translations.
+ * @return string[]
+ */
+function bgi_pll_language_specific_metas( $metas ) {
+	return array_values( array_diff( $metas, array( 'breadcrumb_label', '_breadcrumb_label' ) ) );
+}

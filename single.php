@@ -9,6 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Articles keep the straight quotes they were written with, as in the source design.
+remove_filter( 'the_content', 'wptexturize' );
+remove_filter( 'the_title', 'wptexturize' );
+
 get_header();
 
 while ( have_posts() ) :
@@ -16,8 +20,10 @@ while ( have_posts() ) :
 
 	$bgi_posts_page = bgi_posts_page_id();
 	$bgi_category   = bgi_post_category();
-	$bgi_author     = get_the_author();
-	/* translators: %s: post author's display name. */
+	$bgi_crumb      = function_exists( 'get_field' ) ? trim( (string) get_field( 'breadcrumb_label' ) ) : '';
+	// Articles are signed by the company (Site Settings > Blog), not the WordPress user who posted them.
+	$bgi_author     = bgi_opt( 'article_byline', _x( 'BGI', 'article author', 'bgi' ) );
+	/* translators: %s: author name shown on articles, e.g. BGI. */
 	$bgi_byline     = $bgi_author ? sprintf( __( 'By %s', 'bgi' ), $bgi_author ) : '';
 	$bgi_cta_title  = bgi_opt( 'article_cta_heading', __( 'See what this looks like for your own property.', 'bgi' ) );
 	$bgi_cta_label  = bgi_opt( 'article_cta_label', __( 'Get in Touch', 'bgi' ) );
@@ -32,7 +38,7 @@ while ( have_posts() ) :
 				<?php if ( $bgi_posts_page ) : ?>
 					/ <a href="<?php echo esc_url( get_permalink( $bgi_posts_page ) ); ?>"><?php echo esc_html( get_the_title( $bgi_posts_page ) ); ?></a>
 				<?php endif; ?>
-				/ <span aria-current="page"><?php the_title(); ?></span>
+				/ <span aria-current="page"><?php echo esc_html( '' !== $bgi_crumb ? $bgi_crumb : get_the_title() ); ?></span>
 			</nav>
 			<?php if ( $bgi_category ) : ?>
 				<div class="eyebrow"><?php echo esc_html( $bgi_category->name ); ?></div>

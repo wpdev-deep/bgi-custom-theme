@@ -88,3 +88,17 @@ function bgi_dependency_notice() {
 		echo '<div class="notice notice-warning"><p>' . esc_html__( 'BGI theme expects Polylang to be active.', 'bgi' ) . '</p></div>';
 	}
 }
+
+add_filter( 'wp_robots', 'bgi_noindex_404' );
+/**
+ * Keep the 404 page out of search results, as the source's 404.html does.
+ *
+ * @param array $robots Robots directives.
+ * @return array
+ */
+function bgi_noindex_404( $robots ) {
+	if ( is_404() ) {
+		$robots['noindex'] = true;
+	}
+	return $robots;
+}

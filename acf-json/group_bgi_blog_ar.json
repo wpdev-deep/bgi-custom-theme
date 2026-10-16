@@ -45,6 +45,14 @@
             "endpoint": 0
         },
         {
+            "key": "field_blog_ar_byline",
+            "label": "Author Name",
+            "name": "article_byline",
+            "type": "text",
+            "instructions": "Shown on every article as \"By …\". Default: بي جي آي",
+            "required": 0
+        },
+        {
             "key": "field_blog_ar_cta_heading",
             "label": "CTA Heading",
             "name": "article_cta_heading",
@@ -86,5 +94,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1792108801
+    "modified": 1792143781
 }

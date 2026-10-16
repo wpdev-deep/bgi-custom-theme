@@ -1,0 +1,73 @@
+{
+    "key": "group_bgi_404_ar",
+    "title": "404 Page AR",
+    "fields": [
+        {
+            "key": "field_404_ar_eyebrow",
+            "label": "Eyebrow",
+            "name": "error_eyebrow",
+            "type": "text",
+            "instructions": "Default: تائه في التوأم الرقمي",
+            "required": 0
+        },
+        {
+            "key": "field_404_ar_heading",
+            "label": "Heading",
+            "name": "error_heading",
+            "type": "text",
+            "instructions": "Default: هذه المساحة لم تُبنَ بعد.",
+            "required": 0
+        },
+        {
+            "key": "field_404_ar_text",
+            "label": "Text",
+            "name": "error_text",
+            "type": "textarea",
+            "instructions": "Default: الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها. دعنا نعيدك إلى أرض صلبة.",
+            "required": 0,
+            "rows": 2
+        },
+        {
+            "key": "field_404_ar_home_label",
+            "label": "Home Button Label",
+            "name": "error_home_label",
+            "type": "text",
+            "instructions": "Links to the home page. Default: العودة للرئيسية",
+            "required": 0
+        },
+        {
+            "key": "field_404_ar_contact_label",
+            "label": "Contact Button Label",
+            "name": "error_contact_label",
+            "type": "text",
+            "instructions": "Default: تواصل معنا",
+            "required": 0
+        },
+        {
+            "key": "field_404_ar_contact_url",
+            "label": "Contact Button Link",
+            "name": "error_contact_url",
+            "type": "text",
+            "instructions": "A full URL, or a home page section such as #contact. Default: #contact",
+            "required": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "bgi-settings-ar"
+            }
+        ]
+    ],
+    "menu_order": 3,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1792145790
+}
