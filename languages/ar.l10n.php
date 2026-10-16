@@ -126,5 +126,9 @@ return array(
 		'The page you\'re looking for doesn\'t exist or may have moved. Let\'s get you back to solid ground.' => 'الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها. دعنا نعيدك إلى أرض صلبة.',
 		'Back to Home' => 'العودة للرئيسية',
 		'Contact Us' => 'تواصل معنا',
+		'Search' => 'بحث',
+		'Results for “%s”' => 'نتائج البحث عن «%s»',
+		'No articles match your search. Try other words.' => 'لا توجد مقالات تطابق بحثك. جرّب كلمات أخرى.',
+		'%s article found.' . "\0" . '%s articles found.' => 'لا توجد مقالات.' . "\0" . 'تم العثور على مقال واحد.' . "\0" . 'تم العثور على مقالين.' . "\0" . 'تم العثور على %s مقالات.' . "\0" . 'تم العثور على %s مقالاً.' . "\0" . 'تم العثور على %s مقال.',
 	),
 );

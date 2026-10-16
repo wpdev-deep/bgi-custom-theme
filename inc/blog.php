@@ -162,13 +162,21 @@ function bgi_related_posts( $post_id, $count = 2 ) {
 
 add_action( 'pre_get_posts', 'bgi_blog_order' );
 /**
- * List articles oldest first on the blog page, as blog.html does.
+ * List articles oldest first on the blog page, as blog.html does, and on every archive (category,
+ * tag, date, author) so they match it. Search results show articles only, as article cards: pages
+ * have no card.
  *
  * @param WP_Query $query Query being set up.
  * @return void
  */
 function bgi_blog_order( $query ) {
-	if ( ! is_admin() && $query->is_main_query() && $query->is_home() ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+	if ( $query->is_home() || $query->is_archive() ) {
 		$query->set( 'order', 'ASC' );
+	}
+	if ( $query->is_search() ) {
+		$query->set( 'post_type', 'post' );
 	}
 }
