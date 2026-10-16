@@ -15,20 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'BGI_WORDS_PER_MINUTE', 200 );
 
 /**
- * Swap Western digits for Arabic-Indic ones on Arabic pages, as in the source design.
- *
- * @param string $text Text that may contain digits.
- * @return string
- */
-function bgi_localize_digits( $text ) {
-	if ( 'ar' !== bgi_lang() ) {
-		return (string) $text;
-	}
-	return strtr( (string) $text, array_combine( range( 0, 9 ), array( '٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩' ) ) );
-}
-
-/**
  * Localize the digits in the text of an HTML fragment, leaving tags and attributes (such as URLs) alone.
+ * Uses bgi_localize_digits() from inc/template-tags.php.
  *
  * @param string $html HTML markup.
  * @return string
@@ -72,9 +60,10 @@ function bgi_post_date( $format, $post = null ) {
 }
 
 /**
- * Estimated reading time, e.g. "5 min read".
+ * Reading time, e.g. "5 min read".
  *
- * Words are counted on whitespace so Arabic text is counted too.
+ * The article's own "Reading time" field when set; otherwise estimated from its length,
+ * counting words on whitespace so Arabic text is counted too.
  *
  * @param int|WP_Post|null $post Post, defaults to the current one.
  * @return string
@@ -85,9 +74,12 @@ function bgi_reading_time( $post = null ) {
 		return '';
 	}
 
-	$text    = trim( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ) );
-	$words   = '' === $text ? 0 : count( preg_split( '/\s+/u', $text ) );
-	$minutes = max( 1, (int) ceil( $words / BGI_WORDS_PER_MINUTE ) );
+	$minutes = function_exists( 'get_field' ) ? (int) get_field( 'reading_time', $post->ID ) : 0;
+	if ( $minutes < 1 ) {
+		$text    = trim( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ) );
+		$words   = '' === $text ? 0 : count( preg_split( '/\s+/u', $text ) );
+		$minutes = max( 1, (int) ceil( $words / BGI_WORDS_PER_MINUTE ) );
+	}
 
 	/* translators: %s: number of minutes. */
 	return bgi_localize_digits( sprintf( _n( '%s min read', '%s min read', $minutes, 'bgi' ), $minutes ) );
@@ -157,5 +149,26 @@ function bgi_related_posts( $post_id, $count = 2 ) {
 		);
 	}
 
+	// Listed oldest first, as the source articles list them.
+	usort(
+		$related,
+		function ( $a, $b ) {
+			return strcmp( $a->post_date, $b->post_date );
+		}
+	);
+
 	return $related;
+}
+
+add_action( 'pre_get_posts', 'bgi_blog_order' );
+/**
+ * List articles oldest first on the blog page, as blog.html does.
+ *
+ * @param WP_Query $query Query being set up.
+ * @return void
+ */
+function bgi_blog_order( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && $query->is_home() ) {
+		$query->set( 'order', 'ASC' );
+	}
 }

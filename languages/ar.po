@@ -266,6 +266,21 @@ msgstr "العمليات"
 msgid "Train teams and optimize performance."
 msgstr "درّب فرقك وحسّن الأداء."
 
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Phone"
+msgstr "الهاتف"
+
+msgid "Website"
+msgstr "الموقع الإلكتروني"
+
+msgid "Legal"
+msgstr "قانوني"
+
+msgid "Last updated: %s"
+msgstr "آخر تحديث: %s"
+
 msgid "Insights"
 msgstr "رؤى ومقالات"
 
@@ -296,9 +311,13 @@ msgstr "مسار التنقل"
 msgid "Home"
 msgstr "الرئيسية"
 
-#. translators: %s: post author's display name.
+#. translators: %s: author name shown on articles, e.g. BGI.
 msgid "By %s"
 msgstr "بقلم %s"
+
+msgctxt "article author"
+msgid "BGI"
+msgstr "بي جي آي"
 
 msgid "See what this looks like for your own property."
 msgstr "شاهد كيف يمكن أن يبدو هذا في عقارك."
@@ -325,3 +344,18 @@ msgstr[2] "دقيقتان قراءة"
 msgstr[3] "%s دقائق قراءة"
 msgstr[4] "%s دقيقة قراءة"
 msgstr[5] "%s دقيقة قراءة"
+
+msgid "Lost in the Digital Twin"
+msgstr "تائه في التوأم الرقمي"
+
+msgid "This space hasn't been built yet."
+msgstr "هذه المساحة لم تُبنَ بعد."
+
+msgid "The page you're looking for doesn't exist or may have moved. Let's get you back to solid ground."
+msgstr "الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها. دعنا نعيدك إلى أرض صلبة."
+
+msgid "Back to Home"
+msgstr "العودة للرئيسية"
+
+msgid "Contact Us"
+msgstr "تواصل معنا"

@@ -1,0 +1,67 @@
+{
+    "key": "group_bgi_post",
+    "title": "Article details",
+    "fields": [
+        {
+            "key": "field_bgi_post_reading_time",
+            "label": "Reading time (minutes)",
+            "name": "reading_time",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Shown as \"5 min read\". Leave empty to estimate it from the article's length.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 1,
+            "max": "",
+            "step": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_bgi_post_breadcrumb_label",
+            "label": "Breadcrumb label",
+            "name": "breadcrumb_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Short name for the last breadcrumb item, e.g. Digital Twin. Leave empty to use the title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1792143781
+}
