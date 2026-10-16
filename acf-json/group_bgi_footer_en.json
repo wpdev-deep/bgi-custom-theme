@@ -10,7 +10,11 @@
             "instructions": "Upload an image for the footer logo. If empty, falls back to header logo or default text logo.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": { "width": "", "class": "", "id": "" },
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "return_format": "array",
             "preview_size": "medium",
             "library": "all"
@@ -31,6 +35,15 @@
             "type": "email",
             "instructions": "Default: wael@bgi.sa",
             "required": 0
+        },
+        {
+            "key": "field_footer_en_phone",
+            "label": "Contact Phone",
+            "name": "footer_phone",
+            "type": "text",
+            "instructions": "Shown in the Contact block. Default: +966 55 960 8939",
+            "required": 0,
+            "placeholder": "+966 55 960 8939"
         },
         {
             "key": "field_footer_en_domain",
@@ -123,5 +136,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1791868400
+    "modified": 1792062525
 }

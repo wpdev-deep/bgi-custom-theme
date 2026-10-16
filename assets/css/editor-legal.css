@@ -1,0 +1,42 @@
+/* Block editor only, on pages using the Legal template: the content looks as it does on the page. */
+.editor-styles-wrapper {
+    --muted: rgba(245, 243, 238, 0.68);
+    line-height: 1.75;
+}
+
+.editor-styles-wrapper h2.wp-block-heading {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    letter-spacing: 0.03em;
+    color: var(--gold-light);
+    margin: 46px 0 14px;
+    font-weight: 600;
+}
+
+.editor-styles-wrapper p {
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-size: 0.98rem;
+}
+
+.editor-styles-wrapper ul.wp-block-list {
+    margin: 0 0 16px;
+    padding-inline-start: 22px;
+    color: var(--muted);
+}
+
+.editor-styles-wrapper ul.wp-block-list li {
+    margin-bottom: 8px;
+    font-size: 0.98rem;
+}
+
+.editor-styles-wrapper strong {
+    color: var(--white);
+    font-weight: 500;
+}
+
+.editor-styles-wrapper a {
+    color: var(--gold-light);
+    border-bottom: 1px solid rgba(240, 215, 140, 0.4);
+}

@@ -1519,7 +1519,8 @@ section.alt .client-card {
     background: var(--black-2);
 }
 
-.client-card:hover {
+html:not(.bgi-tilt) .client-card:hover,
+.client-card.tilting {
     background: var(--gold);
     color: #0a0700;
 }
@@ -1538,7 +1539,8 @@ section.alt .client-card {
     margin-top: 6px;
 }
 
-.client-card:hover .cloc {
+html:not(.bgi-tilt) .client-card:hover .cloc,
+.client-card.tilting .cloc {
     color: #3a2f10;
 }
 
@@ -1572,7 +1574,8 @@ section.alt .feature-card {
     background: var(--black-2);
 }
 
-.feature-card:hover {
+html:not(.bgi-tilt) .feature-card:hover,
+.feature-card.tilting {
     background: var(--gold);
     color: #0a0700;
 }
@@ -1585,7 +1588,8 @@ section.alt .feature-card {
     min-width: 48px;
 }
 
-.feature-card:hover .feature-num {
+html:not(.bgi-tilt) .feature-card:hover .feature-num,
+.feature-card.tilting .feature-num {
     color: #0a0700;
 }
 
@@ -1604,7 +1608,8 @@ section.alt .feature-card {
     font-weight: 300;
 }
 
-.feature-card:hover p {
+html:not(.bgi-tilt) .feature-card:hover p,
+.feature-card.tilting p {
     color: #3a2f10;
 }
 
@@ -1743,7 +1748,8 @@ section.alt .impact-card {
     background: var(--black-2);
 }
 
-.impact-card:hover {
+html:not(.bgi-tilt) .impact-card:hover,
+.impact-card.tilting {
     background: var(--gold);
     color: #0a0700;
 }
@@ -1756,7 +1762,8 @@ section.alt .impact-card {
     font-weight: 600;
 }
 
-.impact-card:hover .num {
+html:not(.bgi-tilt) .impact-card:hover .num,
+.impact-card.tilting .num {
     color: #0a0700;
 }
 
@@ -1775,7 +1782,8 @@ section.alt .impact-card {
     font-weight: 300;
 }
 
-.impact-card:hover p {
+html:not(.bgi-tilt) .impact-card:hover p,
+.impact-card.tilting p {
     color: #3a2f10;
 }
 
@@ -1805,7 +1813,8 @@ section.alt .usecase-card {
     background: var(--black-2);
 }
 
-.usecase-card:hover {
+html:not(.bgi-tilt) .usecase-card:hover,
+.usecase-card.tilting {
     background: var(--gold);
     color: #0a0700;
 }
@@ -1822,7 +1831,8 @@ section.alt .usecase-card {
     font-size: 1.15rem;
 }
 
-.usecase-card:hover .usecase-icon {
+html:not(.bgi-tilt) .usecase-card:hover .usecase-icon,
+.usecase-card.tilting .usecase-icon {
     border-color: #0a0700;
 }
 
@@ -1841,7 +1851,8 @@ section.alt .usecase-card {
     font-weight: 300;
 }
 
-.usecase-card:hover p {
+html:not(.bgi-tilt) .usecase-card:hover p,
+.usecase-card.tilting p {
     color: #3a2f10;
 }
 
@@ -2135,10 +2146,6 @@ footer {
     color: var(--gold-light);
 }
 
-.contact-form .wpcf7-submit {
-  width: 100%;
-}
-
 /* ---------- Responsive ---------- */
 @media (max-width:980px) {
     .nav-links {
@@ -2361,20 +2368,23 @@ a.lang-toggle {
  * On light and alternate sections the card background rule outranked :hover, so hovering
  * only darkened the text and the number while the card stayed cream.
  */
-section.light .client-card:hover,
-section.alt .client-card:hover,
-section.light .feature-card:hover,
-section.alt .feature-card:hover,
-section.light .impact-card:hover,
-section.alt .impact-card:hover,
-section.light .usecase-card:hover,
-section.alt .usecase-card:hover {
+html:not(.bgi-tilt) section.light .client-card:hover,
+section.light .client-card.tilting,
+html:not(.bgi-tilt) section.alt .client-card:hover,
+section.alt .client-card.tilting,
+html:not(.bgi-tilt) section.light .feature-card:hover,
+section.light .feature-card.tilting,
+html:not(.bgi-tilt) section.alt .feature-card:hover,
+section.alt .feature-card.tilting,
+html:not(.bgi-tilt) section.light .impact-card:hover,
+section.light .impact-card.tilting,
+html:not(.bgi-tilt) section.alt .impact-card:hover,
+section.alt .impact-card.tilting,
+html:not(.bgi-tilt) section.light .usecase-card:hover,
+section.light .usecase-card.tilting,
+html:not(.bgi-tilt) section.alt .usecase-card:hover,
+section.alt .usecase-card.tilting {
     background: var(--gold);
-}
-
-/* A tilted card is enlarged by 3%; lift it above its neighbours so it no longer slides under them. */
-.tilt.tilting {
-    z-index: 2;
 }
 
 /*

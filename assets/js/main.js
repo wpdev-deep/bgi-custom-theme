@@ -143,31 +143,122 @@
 	}
 
 	/* ==================== 3D TILT CARDS ==================== */
-	// Cards follow the pointer with a slight 3D tilt; a child .tilt-glare tracks it as a highlight.
-	document.querySelectorAll( '.client-card.tilt, .feature-card.tilt, .impact-card.tilt, .usecase-card.tilt' ).forEach( function ( el ) {
-		const max = 10;
-		const scale = 1.03;
+	/*
+	 * Card content leans towards the pointer and enlarges slightly, with a moving highlight (.tilt-glare).
+	 * The pointer is tracked on the grid, which never moves, and compared with each card's
+	 * untransformed layout box. A tilted or enlarged card therefore can't slide out from under the
+	 * pointer and back, which is what made hover flicker at card edges. Updates are batched to one
+	 * per frame, and the CSS eases between them. Skipped on touch screens and for reduced motion.
+	 */
+	const canTilt = window.matchMedia( '(hover: hover) and (pointer: fine)' ).matches &&
+		! window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 
-		el.addEventListener( 'mousemove', function ( e ) {
-			const rect = el.getBoundingClientRect();
-			if ( ! rect.width || ! rect.height ) {
-				return;
+	if ( canTilt ) {
+		document.documentElement.classList.add( 'bgi-tilt' );
+
+		document.querySelectorAll( '.client-grid, .feature-grid, .impact-grid, .usecase-grid' ).forEach( function ( grid ) {
+			const cards = Array.from( grid.children ).filter( function ( el ) {
+				return el.classList.contains( 'tilt' );
+			} );
+			// The box itself stays still, so the content tilts a little further than the source's whole card did.
+			const maxTilt = 18;
+			const scale = 1.05;
+			let active = null;
+			let frame = 0;
+			let pointerX = 0;
+			let pointerY = 0;
+
+			function layoutBox( card ) {
+				const g = grid.getBoundingClientRect();
+				return {
+					left: g.left + grid.clientLeft + card.offsetLeft,
+					top: g.top + grid.clientTop + card.offsetTop,
+					width: card.offsetWidth,
+					height: card.offsetHeight,
+				};
 			}
-			const px = ( e.clientX - rect.left ) / rect.width;
-			const py = ( e.clientY - rect.top ) / rect.height;
-			const rx = ( ( 0.5 - py ) * max ).toFixed( 2 );
-			const ry = ( ( px - 0.5 ) * max ).toFixed( 2 );
-			el.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale(' + scale + ')';
-			el.classList.add( 'tilting' );
-			el.style.setProperty( '--gx', ( px * 100 ).toFixed( 1 ) + '%' );
-			el.style.setProperty( '--gy', ( py * 100 ).toFixed( 1 ) + '%' );
-		} );
 
-		el.addEventListener( 'mouseleave', function () {
-			el.style.transform = '';
-			el.classList.remove( 'tilting' );
+			function cardAtPointer() {
+				for ( let i = 0; i < cards.length; i++ ) {
+					const b = layoutBox( cards[ i ] );
+					if ( pointerX >= b.left && pointerX < b.left + b.width && pointerY >= b.top && pointerY < b.top + b.height ) {
+						return { card: cards[ i ], box: b };
+					}
+				}
+				return null;
+			}
+
+			// The card's background stays inside its cell; only its content tilts, so no colour spills over.
+			function contentOf( card ) {
+				return Array.from( card.children ).filter( function ( el ) {
+					return ! el.classList.contains( 'tilt-glare' );
+				} );
+			}
+
+			function release( card ) {
+				card.classList.remove( 'tilting' );
+				contentOf( card ).forEach( function ( el ) {
+					el.style.transform = '';
+				} );
+			}
+
+			function update() {
+				frame = 0;
+				const hit = cardAtPointer();
+				const card = hit ? hit.card : null;
+				if ( card !== active ) {
+					if ( active ) {
+						release( active );
+					}
+					active = card;
+					if ( card ) {
+						card.classList.add( 'tilting' );
+					}
+				}
+				if ( ! hit ) {
+					return;
+				}
+				const px = Math.min( 1, Math.max( 0, ( pointerX - hit.box.left ) / hit.box.width ) );
+				const py = Math.min( 1, Math.max( 0, ( pointerY - hit.box.top ) / hit.box.height ) );
+				const rx = ( ( 0.5 - py ) * maxTilt ).toFixed( 2 );
+				const ry = ( ( px - 0.5 ) * maxTilt ).toFixed( 2 );
+				const transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale(' + scale + ')';
+				contentOf( card ).forEach( function ( el ) {
+					// Rotate every piece about the card's centre, so the content moves as one tilted plane.
+					el.style.transformOrigin = ( hit.box.width / 2 - el.offsetLeft ) + 'px ' + ( hit.box.height / 2 - el.offsetTop ) + 'px';
+					el.style.transform = transform;
+				} );
+				card.style.setProperty( '--gx', ( px * 100 ).toFixed( 1 ) + '%' );
+				card.style.setProperty( '--gy', ( py * 100 ).toFixed( 1 ) + '%' );
+			}
+
+			grid.addEventListener(
+				'pointermove',
+				function ( e ) {
+					if ( 'mouse' !== e.pointerType ) {
+						return;
+					}
+					pointerX = e.clientX;
+					pointerY = e.clientY;
+					if ( ! frame ) {
+						frame = window.requestAnimationFrame( update );
+					}
+				},
+				{ passive: true }
+			);
+
+			grid.addEventListener( 'pointerleave', function () {
+				if ( frame ) {
+					window.cancelAnimationFrame( frame );
+					frame = 0;
+				}
+				if ( active ) {
+					release( active );
+					active = null;
+				}
+			} );
 		} );
-	} );
+	}
 
 	/* ==================== DEMO MODAL ==================== */
 	const demoOverlay = document.getElementById( 'demoOverlay' );

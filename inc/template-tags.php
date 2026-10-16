@@ -173,3 +173,44 @@ function bgi_get_image_data( $image ) {
 function bgi_highlight( $text, $class = 'gold' ) {
 	return preg_replace( '/[*]([^*]+)[*]/', '<span class="' . esc_attr( $class ) . '">$1</span>', esc_html( (string) $text ) );
 }
+
+/**
+ * Write Western digits as Arabic-Indic digits on Arabic pages, as the design does in dates.
+ *
+ * @param string $text Text containing digits.
+ * @return string
+ */
+function bgi_localize_digits( $text ) {
+	if ( 'ar' !== bgi_lang() ) {
+		return $text;
+	}
+	return strtr( (string) $text, array( '0' => '٠', '1' => '١', '2' => '٢', '3' => '٣', '4' => '٤', '5' => '٥', '6' => '٦', '7' => '٧', '8' => '٨', '9' => '٩' ) );
+}
+
+/**
+ * Date shown as "Last updated" on a legal page.
+ *
+ * The page's own "Last updated" field when set, so a typo fix does not change the legal date;
+ * otherwise the date the page was last saved.
+ *
+ * @param int|null $post_id Page ID. Defaults to the current page.
+ * @return string Localised date, e.g. "August 9, 2026" or "٩ أغسطس ٢٠٢٦".
+ */
+function bgi_legal_updated_date( $post_id = null ) {
+	$post_id   = $post_id ? (int) $post_id : get_the_ID();
+	$timestamp = 0;
+
+	$field = function_exists( 'get_field' ) ? get_field( 'last_updated', $post_id ) : '';
+	if ( $field ) {
+		$date = DateTimeImmutable::createFromFormat( '!Ymd', (string) $field, wp_timezone() );
+		if ( $date ) {
+			$timestamp = $date->getTimestamp();
+		}
+	}
+	if ( ! $timestamp ) {
+		$timestamp = (int) get_post_modified_time( 'U', true, $post_id );
+	}
+
+	$format = ( 'ar' === bgi_lang() ) ? 'j F Y' : 'F j, Y';
+	return bgi_localize_digits( wp_date( $format, $timestamp ) );
+}

@@ -1,0 +1,43 @@
+{
+    "key": "group_bgi_legal",
+    "title": "Legal page",
+    "fields": [
+        {
+            "key": "field_bgi_legal_last_updated",
+            "label": "Last updated",
+            "name": "last_updated",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "Shown under the title as \"Last updated: …\". Set it when the policy itself changes. Leave empty to use the date the page was last saved.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "Ymd",
+            "first_day": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/legal.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1792064294
+}
