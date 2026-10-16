@@ -1,0 +1,90 @@
+{
+    "key": "group_bgi_blog_ar",
+    "title": "Blog AR",
+    "fields": [
+        {
+            "key": "field_blog_ar_tab_index",
+            "label": "Blog Page",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_blog_ar_eyebrow",
+            "label": "Eyebrow",
+            "name": "blog_eyebrow",
+            "type": "text",
+            "instructions": "Default: رؤى ومقالات",
+            "required": 0
+        },
+        {
+            "key": "field_blog_ar_heading",
+            "label": "Heading",
+            "name": "blog_heading",
+            "type": "textarea",
+            "instructions": "Default: أفكار حول التوأمة الرقمية والواقع الافتراضي والذكاء المكاني لقطاع الضيافة.",
+            "required": 0,
+            "rows": 2
+        },
+        {
+            "key": "field_blog_ar_intro",
+            "label": "Intro",
+            "name": "blog_intro",
+            "type": "textarea",
+            "instructions": "Default: أدلة عملية وواقعية لملاك ومشغّلي الفنادق الذين يقيّمون ما يعنيه التحول الرقمي فعلياً لعقاراتهم.",
+            "required": 0,
+            "rows": 3
+        },
+        {
+            "key": "field_blog_ar_tab_article",
+            "label": "Articles",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_blog_ar_cta_heading",
+            "label": "CTA Heading",
+            "name": "article_cta_heading",
+            "type": "text",
+            "instructions": "Box at the end of every article. Default: شاهد كيف يمكن أن يبدو هذا في عقارك.",
+            "required": 0
+        },
+        {
+            "key": "field_blog_ar_cta_label",
+            "label": "CTA Button Label",
+            "name": "article_cta_label",
+            "type": "text",
+            "instructions": "Default: تواصل معنا",
+            "required": 0
+        },
+        {
+            "key": "field_blog_ar_cta_url",
+            "label": "CTA Button Link",
+            "name": "article_cta_url",
+            "type": "text",
+            "instructions": "A full URL, or a home page section such as #contact. Default: #contact",
+            "required": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "bgi-settings-ar"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1792108801
+}

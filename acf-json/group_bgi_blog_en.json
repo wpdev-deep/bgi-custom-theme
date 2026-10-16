@@ -1,0 +1,90 @@
+{
+    "key": "group_bgi_blog_en",
+    "title": "Blog EN",
+    "fields": [
+        {
+            "key": "field_blog_en_tab_index",
+            "label": "Blog Page",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_blog_en_eyebrow",
+            "label": "Eyebrow",
+            "name": "blog_eyebrow",
+            "type": "text",
+            "instructions": "Default: Insights",
+            "required": 0
+        },
+        {
+            "key": "field_blog_en_heading",
+            "label": "Heading",
+            "name": "blog_heading",
+            "type": "textarea",
+            "instructions": "Default: Ideas on digital twins, virtual reality and spatial intelligence for hospitality.",
+            "required": 0,
+            "rows": 2
+        },
+        {
+            "key": "field_blog_en_intro",
+            "label": "Intro",
+            "name": "blog_intro",
+            "type": "textarea",
+            "instructions": "Default: Practical, no-hype guides for hotel owners and operators evaluating what digital transformation actually means for their properties.",
+            "required": 0,
+            "rows": 3
+        },
+        {
+            "key": "field_blog_en_tab_article",
+            "label": "Articles",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_blog_en_cta_heading",
+            "label": "CTA Heading",
+            "name": "article_cta_heading",
+            "type": "text",
+            "instructions": "Box at the end of every article. Default: See what this looks like for your own property.",
+            "required": 0
+        },
+        {
+            "key": "field_blog_en_cta_label",
+            "label": "CTA Button Label",
+            "name": "article_cta_label",
+            "type": "text",
+            "instructions": "Default: Get in Touch",
+            "required": 0
+        },
+        {
+            "key": "field_blog_en_cta_url",
+            "label": "CTA Button Link",
+            "name": "article_cta_url",
+            "type": "text",
+            "instructions": "A full URL, or a home page section such as #contact. Default: #contact",
+            "required": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "bgi-settings-en"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1792108801
+}

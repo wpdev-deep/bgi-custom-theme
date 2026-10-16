@@ -266,17 +266,62 @@ msgstr "العمليات"
 msgid "Train teams and optimize performance."
 msgstr "درّب فرقك وحسّن الأداء."
 
-msgid "Email"
-msgstr "البريد الإلكتروني"
+msgid "Insights"
+msgstr "رؤى ومقالات"
 
-msgid "Phone"
-msgstr "الهاتف"
+msgid "Ideas on digital twins, virtual reality and spatial intelligence for hospitality."
+msgstr "أفكار حول التوأمة الرقمية والواقع الافتراضي والذكاء المكاني لقطاع الضيافة."
 
-msgid "Website"
-msgstr "الموقع الإلكتروني"
+msgid "Practical, no-hype guides for hotel owners and operators evaluating what digital transformation actually means for their properties."
+msgstr "أدلة عملية وواقعية لملاك ومشغّلي الفنادق الذين يقيّمون ما يعنيه التحول الرقمي فعلياً لعقاراتهم."
 
-msgid "Legal"
-msgstr "قانوني"
+msgid "Read Article"
+msgstr "اقرأ المقال"
 
-msgid "Last updated: %s"
-msgstr "آخر تحديث: %s"
+msgid "Previous"
+msgstr "السابق"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "More articles"
+msgstr "المزيد من المقالات"
+
+msgid "No articles yet. Check back soon."
+msgstr "لا توجد مقالات بعد. تابعنا قريباً."
+
+msgid "Breadcrumb"
+msgstr "مسار التنقل"
+
+msgid "Home"
+msgstr "الرئيسية"
+
+#. translators: %s: post author's display name.
+msgid "By %s"
+msgstr "بقلم %s"
+
+msgid "See what this looks like for your own property."
+msgstr "شاهد كيف يمكن أن يبدو هذا في عقارك."
+
+msgid "Get in Touch"
+msgstr "تواصل معنا"
+
+msgid "Continue Reading"
+msgstr "تابع القراءة"
+
+msgctxt "blog card date format"
+msgid "M j, Y"
+msgstr "j F Y"
+
+msgctxt "article date format"
+msgid "F j, Y"
+msgstr "j F Y"
+
+msgid "%s min read"
+msgid_plural "%s min read"
+msgstr[0] "%s دقيقة قراءة"
+msgstr[1] "دقيقة قراءة واحدة"
+msgstr[2] "دقيقتان قراءة"
+msgstr[3] "%s دقائق قراءة"
+msgstr[4] "%s دقيقة قراءة"
+msgstr[5] "%s دقيقة قراءة"
