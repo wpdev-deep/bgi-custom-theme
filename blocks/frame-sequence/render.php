@@ -106,7 +106,7 @@ if ( ! empty( $block['className'] ) ) {
 	$bgi_classes .= ' ' . $block['className'];
 }
 ?>
-<div class="<?php echo esc_attr( $bgi_classes ); ?>" data-bgi-frame-sequence="<?php echo esc_attr( $bgi_style ); ?>"<?php echo ! empty( $block['anchor'] ) ? ' id="' . esc_attr( $block['anchor'] ) . '"' : ''; ?>>
+<div class="<?php echo esc_attr( $bgi_classes ); ?>" data-bgi-frame-sequence="<?php echo esc_attr( $bgi_style ); ?>"<?php echo ! empty( $block['anchor'] ) ? ' id="' . esc_attr( $block['anchor'] ) . '"' : ''; ?><?php bgi_highlight_color_attr( $block ); ?>>
 	<div class="<?php echo esc_attr( $bgi_style ); ?>-progress" data-bgi-frame-progress></div>
 	<div class="<?php echo esc_attr( $bgi_style ); ?>-stage">
 		<?php

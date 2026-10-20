@@ -80,12 +80,30 @@
             "append": ""
         },
         {
+            "key": "field_bgi_hero_highlight_color",
+            "label": "Highlight colour",
+            "name": "highlight_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Colour of every highlighted word (written between *stars*) in this section: heading, paragraphs, cards and closing line. Pick from the palette or set a custom colour. Default: light gold (#f0d78c).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#f0d78c",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
             "key": "field_bgi_hero_subtitle",
             "label": "Subtitle",
             "name": "subtitle",
             "aria-label": "",
-            "type": "text",
-            "instructions": "",
+            "type": "wysiwyg",
+            "instructions": "Bold, italic and links; Shift+Enter for a new line. Wrap words in *stars* to highlight them.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -94,10 +112,10 @@
                 "id": ""
             },
             "default_value": "Basma Global Integration — digital experiences engineered for hospitality",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "tabs": "visual",
+            "toolbar": "bgi_inline",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_bgi_hero_tab_buttons",
@@ -235,5 +253,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1791903202
+    "modified": 1792503109
 }

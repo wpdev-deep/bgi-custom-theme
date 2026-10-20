@@ -45,7 +45,7 @@
             "name": "heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "Wrap a word or phrase in asterisks to colour it gold, e.g. your *property*.",
+            "instructions": "Wrap a word or phrase in asterisks to highlight it in the section's highlight colour, e.g. your *property*.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -58,6 +58,24 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_bgi_use_cases_highlight_color",
+            "label": "Highlight colour",
+            "name": "highlight_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Colour of every highlighted word (written between *stars*) in this section: heading, paragraphs, cards and closing line. Pick from the palette or set a custom colour. Default: gold (#c9963a).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#c9963a",
+            "enable_opacity": 0,
+            "return_format": "string"
         },
         {
             "key": "field_bgi_use_cases_footer",
@@ -145,7 +163,7 @@
                     "name": "title",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Wrap words in *stars* to highlight them.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -166,7 +184,7 @@
                     "name": "description",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Wrap words in *stars* to highlight them.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -202,5 +220,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1791983564
+    "modified": 1792503109
 }

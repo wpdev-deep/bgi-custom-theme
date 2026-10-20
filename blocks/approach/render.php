@@ -43,7 +43,7 @@ if ( ! empty( $block['className'] ) ) {
 $bgi_anchor = ! empty( $block['anchor'] ) ? $block['anchor'] : 'approach';
 $bgi_span   = array( 'span' => array( 'class' => array() ) );
 ?>
-<section id="<?php echo esc_attr( $bgi_anchor ); ?>" class="<?php echo esc_attr( $bgi_classes ); ?>">
+<section id="<?php echo esc_attr( $bgi_anchor ); ?>" class="<?php echo esc_attr( $bgi_classes ); ?>"<?php bgi_highlight_color_attr( $block ); ?>>
 	<div class="container">
 		<?php if ( $bgi_eyebrow || $bgi_heading ) : ?>
 			<div class="section-head center reveal">

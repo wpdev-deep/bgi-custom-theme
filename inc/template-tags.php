@@ -214,3 +214,110 @@ function bgi_legal_updated_date( $post_id = null ) {
 	$format = ( 'ar' === bgi_lang() ) ? 'j F Y' : 'F j, Y';
 	return bgi_localize_digits( wp_date( $format, $timestamp ) );
 }
+
+/**
+ * Print the style attribute that recolours a block's highlighted words.
+ *
+ * Uses the block's "Highlight colour" field. A block saved before the field existed has no value
+ * yet, so it falls back to the field's default for that block (gold on paper sections, light gold
+ * on dark ones). Prints nothing when neither is a valid colour.
+ *
+ * @param array $block The block settings and attributes.
+ * @return void
+ */
+function bgi_highlight_color_attr( $block = array() ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return;
+	}
+	$color = sanitize_hex_color( (string) get_field( 'highlight_color' ) );
+	if ( ! $color && ! empty( $block['name'] ) ) {
+		$color = sanitize_hex_color( bgi_block_field_default( $block['name'], 'highlight_color' ) );
+	}
+	if ( $color ) {
+		echo ' style="' . esc_attr( '--bgi-highlight: ' . $color ) . '"';
+	}
+}
+
+/**
+ * Default value of a field in a block's own field group.
+ *
+ * Several blocks share a field name with different defaults, so the field is looked up in the
+ * groups attached to that block rather than by name alone.
+ *
+ * @param string $block_name Block name, e.g. "bgi/journey".
+ * @param string $field_name Field name.
+ * @return string Empty when the field or its default is missing.
+ */
+function bgi_block_field_default( $block_name, $field_name ) {
+	static $cache = array();
+	$key = $block_name . '|' . $field_name;
+	if ( ! isset( $cache[ $key ] ) ) {
+		$cache[ $key ] = '';
+		if ( function_exists( 'acf_get_field_groups' ) ) {
+			foreach ( acf_get_field_groups( array( 'block' => $block_name ) ) as $group ) {
+				foreach ( (array) acf_get_fields( $group ) as $field ) {
+					if ( $field_name === $field['name'] && isset( $field['default_value'] ) ) {
+						$cache[ $key ] = (string) $field['default_value'];
+						break 2;
+					}
+				}
+			}
+		}
+	}
+	return $cache[ $key ];
+}
+
+/**
+ * Tags a section paragraph may carry: bold, italic, links and line breaks from its text editor,
+ * and the highlight span that *stars* become.
+ *
+ * @return array Allowed HTML for wp_kses().
+ */
+function bgi_inline_allowed_tags() {
+	return array(
+		'span'   => array(
+			'class' => true,
+		),
+		'strong' => array(),
+		'b'      => array(),
+		'em'     => array(),
+		'i'      => array(),
+		'br'     => array(),
+		'a'      => array(
+			'href'   => true,
+			'target' => true,
+			'rel'    => true,
+			'title'  => true,
+		),
+	);
+}
+
+/**
+ * Prepare a section paragraph's editor text for printing inside its <p>.
+ *
+ * The editor may wrap lines in <p>; they become line breaks, so the section keeps its single
+ * paragraph and the design's spacing. Plain text saved before the editor was added works as is.
+ * The caller passes the result through wp_kses() with bgi_inline_allowed_tags().
+ *
+ * @param string $text Raw field value (get_field() with formatting off).
+ * @return string
+ */
+function bgi_inline_text( $text ) {
+	$text = str_replace( array( "\r\n", "\r" ), "\n", trim( (string) $text ) );
+	// Drop scripts and styles with their contents; wp_kses() would only remove the tags.
+	$text = preg_replace( '#<(script|style)\b[^>]*>.*?</\1>#is', '', $text );
+	$text = preg_replace( '#</p>\s*<p[^>]*>#i', "\n\n", $text );
+	$text = preg_replace( '#</?p[^>]*>#i', '', $text );
+	$text = nl2br( trim( $text ), false );
+
+	// In the words (not inside tags): encode quotes, as esc_html() did, so WordPress's later curly-quote
+	// pass over the page leaves them straight as in the source design; then turn *words* into highlights.
+	return preg_replace_callback(
+		'/(^|>)([^<]+)/',
+		function ( $matches ) {
+			$words = str_replace( array( "'", '"' ), array( '&#039;', '&quot;' ), $matches[2] );
+			return $matches[1] . preg_replace( '/[*]([^*]+)[*]/', '<span class="gold">$1</span>', $words );
+		},
+		$text
+	);
+}

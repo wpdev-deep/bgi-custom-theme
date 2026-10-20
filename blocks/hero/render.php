@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $bgi_eyebrow         = get_field( 'eyebrow' );
 $bgi_heading_line_1  = get_field( 'heading_line_1' );
 $bgi_heading_line_2  = get_field( 'heading_line_2' );
-$bgi_subtitle        = get_field( 'subtitle' );
+$bgi_subtitle        = get_field( 'subtitle', false, false );
 $bgi_primary_label   = get_field( 'primary_label' );
 $bgi_primary_url     = get_field( 'primary_url' );
 $bgi_secondary_label = get_field( 'secondary_label' );
@@ -26,7 +26,7 @@ if ( ! empty( $block['className'] ) ) {
 	$bgi_classes .= ' ' . $block['className'];
 }
 ?>
-<section class="<?php echo esc_attr( $bgi_classes ); ?>"<?php echo ! empty( $block['anchor'] ) ? ' id="' . esc_attr( $block['anchor'] ) . '"' : ''; ?>>
+<section class="<?php echo esc_attr( $bgi_classes ); ?>"<?php echo ! empty( $block['anchor'] ) ? ' id="' . esc_attr( $block['anchor'] ) . '"' : ''; ?><?php bgi_highlight_color_attr( $block ); ?>>
 	<div id="hero-scene"></div>
 	<svg id="hero-fallback" class="hero-fallback" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 		<defs>
@@ -79,7 +79,7 @@ if ( ! empty( $block['className'] ) ) {
 		<?php endif; ?>
 
 		<?php if ( $bgi_subtitle ) : ?>
-			<p class="subtitle"><?php echo esc_html( $bgi_subtitle ); ?></p>
+			<p class="subtitle"><?php echo wp_kses( bgi_inline_text( $bgi_subtitle ), bgi_inline_allowed_tags() ); ?></p>
 		<?php endif; ?>
 
 		<?php if ( $bgi_primary_label || $bgi_secondary_label ) : ?>

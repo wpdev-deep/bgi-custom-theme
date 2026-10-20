@@ -60,7 +60,7 @@ if ( ! empty( $block['className'] ) ) {
 $bgi_anchor = ! empty( $block['anchor'] ) ? $block['anchor'] : 'impact';
 $bgi_gold   = array( 'span' => array( 'class' => array() ) );
 ?>
-<section id="<?php echo esc_attr( $bgi_anchor ); ?>" class="<?php echo esc_attr( $bgi_classes ); ?>">
+<section id="<?php echo esc_attr( $bgi_anchor ); ?>" class="<?php echo esc_attr( $bgi_classes ); ?>"<?php bgi_highlight_color_attr( $block ); ?>>
 	<div class="container">
 		<?php if ( $bgi_eyebrow || $bgi_heading ) : ?>
 			<div class="section-head center reveal">
@@ -80,10 +80,10 @@ $bgi_gold   = array( 'span' => array( 'class' => array() ) );
 					<div class="tilt-glare"></div>
 					<div class="num"><?php echo esc_html( sprintf( '%02d', $bgi_i + 1 ) ); ?></div>
 					<?php if ( '' !== $bgi_item['title'] ) : ?>
-						<h3><?php echo esc_html( $bgi_item['title'] ); ?></h3>
+						<h3><?php echo wp_kses( bgi_highlight( $bgi_item['title'] ), $bgi_gold ); ?></h3>
 					<?php endif; ?>
 					<?php if ( '' !== $bgi_item['description'] ) : ?>
-						<p><?php echo esc_html( $bgi_item['description'] ); ?></p>
+						<p><?php echo wp_kses( bgi_highlight( $bgi_item['description'] ), $bgi_gold ); ?></p>
 					<?php endif; ?>
 				</div>
 			<?php endforeach; ?>

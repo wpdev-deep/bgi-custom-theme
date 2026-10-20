@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $bgi_eyebrow = get_field( 'eyebrow' );
 $bgi_heading = get_field( 'heading' );
 $bgi_footer  = get_field( 'footer' );
-$bgi_note    = get_field( 'note' );
+$bgi_note    = get_field( 'note', false, false );
 $bgi_rows    = get_field( 'steps' );
 
 $bgi_steps = array();
@@ -66,7 +66,7 @@ if ( ! empty( $block['className'] ) ) {
 $bgi_anchor = ! empty( $block['anchor'] ) ? $block['anchor'] : 'process';
 $bgi_gold   = array( 'span' => array( 'class' => array() ) );
 ?>
-<section id="<?php echo esc_attr( $bgi_anchor ); ?>" class="<?php echo esc_attr( $bgi_classes ); ?>">
+<section id="<?php echo esc_attr( $bgi_anchor ); ?>" class="<?php echo esc_attr( $bgi_classes ); ?>"<?php bgi_highlight_color_attr( $block ); ?>>
 	<div class="container">
 		<?php if ( $bgi_eyebrow || $bgi_heading ) : ?>
 			<div class="section-head center reveal">
@@ -86,10 +86,10 @@ $bgi_gold   = array( 'span' => array( 'class' => array() ) );
 					<div class="process-num"><?php echo esc_html( sprintf( '%02d', $bgi_i + 1 ) ); ?></div>
 					<div>
 						<?php if ( '' !== $bgi_step['title'] ) : ?>
-							<h3><?php echo esc_html( $bgi_step['title'] ); ?></h3>
+							<h3><?php echo wp_kses( bgi_highlight( $bgi_step['title'] ), $bgi_gold ); ?></h3>
 						<?php endif; ?>
 						<?php if ( '' !== $bgi_step['description'] ) : ?>
-							<p><?php echo esc_html( $bgi_step['description'] ); ?></p>
+							<p><?php echo wp_kses( bgi_highlight( $bgi_step['description'] ), $bgi_gold ); ?></p>
 						<?php endif; ?>
 					</div>
 				</div>
@@ -101,7 +101,7 @@ $bgi_gold   = array( 'span' => array( 'class' => array() ) );
 		<?php endif; ?>
 
 		<?php if ( $bgi_note ) : ?>
-			<p class="section-note process-note"><?php echo esc_html( $bgi_note ); ?></p>
+			<p class="section-note process-note"><?php echo wp_kses( bgi_inline_text( $bgi_note ), bgi_inline_allowed_tags() ); ?></p>
 		<?php endif; ?>
 	</div>
 </section>
