@@ -45,7 +45,7 @@
             "name": "heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "Wrap a word or phrase in asterisks to colour it gold, e.g. From space to *experience*.",
+            "instructions": "Wrap a word or phrase in asterisks to highlight it in the section's highlight colour, e.g. From space to *experience*.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -60,12 +60,30 @@
             "append": ""
         },
         {
+            "key": "field_bgi_deliver_highlight_color",
+            "label": "Highlight colour",
+            "name": "highlight_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Colour of every highlighted word (written between *stars*) in this section: heading, paragraphs, cards and closing line. Pick from the palette or set a custom colour. Default: gold (#c9963a).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#c9963a",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
             "key": "field_bgi_deliver_footer",
             "label": "Closing line",
             "name": "footer",
             "aria-label": "",
             "type": "text",
-            "instructions": "Shown in capitals below the grid. Asterisks colour a phrase gold. Leave empty to hide it.",
+            "instructions": "Shown in capitals below the grid. Wrap words in *stars* to highlight them. Leave empty to hide it.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -84,8 +102,8 @@
             "label": "Location note",
             "name": "note",
             "aria-label": "",
-            "type": "textarea",
-            "instructions": "Small print under the closing line, shown after a 📍 pin. Leave empty to hide it.",
+            "type": "wysiwyg",
+            "instructions": "Small print under the closing line, shown after a 📍 pin. Leave empty to hide it. Bold, italic and links; Shift+Enter for a new line. Wrap words in *stars* to highlight them.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -94,10 +112,10 @@
                 "id": ""
             },
             "default_value": "Operating across Saudi Arabia's leading hospitality destinations — from Riyadh to Jeddah, the Eastern Province and NEOM.",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": 2,
-            "new_lines": ""
+            "tabs": "visual",
+            "toolbar": "bgi_inline",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_bgi_deliver_tab_services",
@@ -144,7 +162,7 @@
                     "name": "title",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Wrap words in *stars* to highlight them.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -165,7 +183,7 @@
                     "name": "description",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Wrap words in *stars* to highlight them.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -201,5 +219,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1791903202
+    "modified": 1792503109
 }

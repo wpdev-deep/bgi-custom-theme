@@ -3174,3 +3174,63 @@ body.lang-ar .error-404 h1 {
 .error-404 .btn-outline:hover {
     background: none;
 }
+
+/* ---------- Highlight colour (block setting) ---------- */
+/*
+ * A block's "Highlight colour" field sets --bgi-highlight on the section. It then recolours every
+ * highlighted word in that section: heading, footer line and Approach points. Without it the design's
+ * colours above apply (light gold in headings, gold in footer lines and points).
+ */
+[style*="--bgi-highlight"] .gold,
+[style*="--bgi-highlight"] .hl {
+    color: var(--bgi-highlight);
+}
+
+/* ---------- Section paragraph formatting (text editor) ---------- */
+/* Bold, italic and links typed in a section's paragraph editor. Body text is light (300), so bold steps up to 500. */
+.hero .subtitle strong,
+.hero .subtitle b,
+.journey-intro strong,
+.journey-intro b,
+.section-head p strong,
+.section-head p b,
+.section-note strong,
+.section-note b,
+.gm-text strong,
+.gm-text b {
+    font-weight: 500;
+    color: inherit;
+}
+
+.hero .subtitle a,
+.journey-intro a,
+.section-head p a,
+.section-note a,
+.gm-text a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color .2s ease;
+}
+
+.hero .subtitle a:hover,
+.journey-intro a:hover,
+.section-head p a:hover,
+.section-note a:hover,
+.gm-text a:hover {
+    color: var(--gold);
+}
+
+/*
+ * Highlights inside a card that turns gold on hover take the card's dark hover text colour,
+ * so a gold highlight never disappears into the gold background.
+ */
+html:not(.bgi-tilt) .feature-card:hover .gold,
+.feature-card.tilting .gold,
+html:not(.bgi-tilt) .impact-card:hover .gold,
+.impact-card.tilting .gold,
+html:not(.bgi-tilt) .usecase-card:hover .gold,
+.usecase-card.tilting .gold {
+    color: inherit;
+}

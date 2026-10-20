@@ -45,7 +45,7 @@
             "name": "heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "Wrap a word or phrase in asterisks to colour it gold, e.g. lasting *impact*.",
+            "instructions": "Wrap a word or phrase in asterisks to highlight it in the section's highlight colour, e.g. lasting *impact*.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -58,6 +58,24 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_bgi_approach_highlight_color",
+            "label": "Highlight colour",
+            "name": "highlight_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Colour of every highlighted word (written between *stars*) in this section: heading, paragraphs, cards and closing line. Pick from the palette or set a custom colour. Default: gold (#c9963a).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#c9963a",
+            "enable_opacity": 0,
+            "return_format": "string"
         },
         {
             "key": "field_bgi_approach_footer",
@@ -160,5 +178,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1791981813
+    "modified": 1792503109
 }

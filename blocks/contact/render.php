@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $bgi_eyebrow    = get_field( 'eyebrow' );
 $bgi_heading    = get_field( 'heading' );
-$bgi_subheading = get_field( 'subheading' );
+$bgi_subheading = get_field( 'subheading', false, false );
 $bgi_form_id    = (int) get_field( 'form' );
 $bgi_rows       = get_field( 'items' );
 
@@ -97,7 +97,7 @@ if ( ! empty( $block['className'] ) ) {
 $bgi_anchor = ! empty( $block['anchor'] ) ? $block['anchor'] : 'contact';
 $bgi_gold   = array( 'span' => array( 'class' => array() ) );
 ?>
-<section id="<?php echo esc_attr( $bgi_anchor ); ?>" class="<?php echo esc_attr( $bgi_classes ); ?>">
+<section id="<?php echo esc_attr( $bgi_anchor ); ?>" class="<?php echo esc_attr( $bgi_classes ); ?>"<?php bgi_highlight_color_attr( $block ); ?>>
 	<div class="container">
 		<div class="contact-wrap">
 			<div class="contact-info reveal">
@@ -110,7 +110,7 @@ $bgi_gold   = array( 'span' => array( 'class' => array() ) );
 				<?php endif; ?>
 
 				<?php if ( $bgi_subheading ) : ?>
-					<p><?php echo esc_html( $bgi_subheading ); ?></p>
+					<p><?php echo wp_kses( bgi_inline_text( $bgi_subheading ), bgi_inline_allowed_tags() ); ?></p>
 				<?php endif; ?>
 
 				<?php foreach ( $bgi_items as $bgi_item ) : ?>

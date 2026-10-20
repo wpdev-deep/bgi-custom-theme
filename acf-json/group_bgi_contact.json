@@ -45,7 +45,7 @@
             "name": "heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "Wrap a word or phrase in asterisks to colour it gold, e.g. something *extraordinary*.",
+            "instructions": "Wrap a word or phrase in asterisks to highlight it in the section's highlight colour, e.g. something *extraordinary*.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -60,12 +60,30 @@
             "append": ""
         },
         {
+            "key": "field_bgi_contact_highlight_color",
+            "label": "Highlight colour",
+            "name": "highlight_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Colour of every highlighted word (written between *stars*) in this section: heading, paragraphs, cards and closing line. Pick from the palette or set a custom colour. Default: light gold (#f0d78c).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#f0d78c",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
             "key": "field_bgi_contact_subheading",
             "label": "Subheading",
             "name": "subheading",
             "aria-label": "",
-            "type": "text",
-            "instructions": "",
+            "type": "wysiwyg",
+            "instructions": "Bold, italic and links; Shift+Enter for a new line. Wrap words in *stars* to highlight them.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -74,10 +92,10 @@
                 "id": ""
             },
             "default_value": "Together, we transform possibilities into iconic reality.",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "tabs": "visual",
+            "toolbar": "bgi_inline",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_bgi_contact_tab_items",
@@ -266,5 +284,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1792056000
+    "modified": 1792503109
 }

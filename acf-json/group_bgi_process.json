@@ -45,7 +45,7 @@
             "name": "heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "Wrap a word or phrase in asterisks to colour it gold, e.g. Measurable *impact*.",
+            "instructions": "Wrap a word or phrase in asterisks to highlight it in the section's highlight colour, e.g. Measurable *impact*.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -58,6 +58,24 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_bgi_process_highlight_color",
+            "label": "Highlight colour",
+            "name": "highlight_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Colour of every highlighted word (written between *stars*) in this section: heading, paragraphs, cards and closing line. Pick from the palette or set a custom colour. Default: light gold (#f0d78c).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#f0d78c",
+            "enable_opacity": 0,
+            "return_format": "string"
         },
         {
             "key": "field_bgi_process_footer",
@@ -84,8 +102,8 @@
             "label": "Note",
             "name": "note",
             "aria-label": "",
-            "type": "textarea",
-            "instructions": "Small centred text under the closing line.",
+            "type": "wysiwyg",
+            "instructions": "Small centred text under the closing line. Bold, italic and links; Shift+Enter for a new line. Wrap words in *stars* to highlight them.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -94,10 +112,10 @@
                 "id": ""
             },
             "default_value": "We work with hospitality businesses on a project basis — every engagement is scoped around your property, your goals and your timeline, from a single pilot space to a full portfolio rollout.",
-            "maxlength": "",
-            "rows": 3,
-            "placeholder": "",
-            "new_lines": ""
+            "tabs": "visual",
+            "toolbar": "bgi_inline",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_bgi_process_tab_steps",
@@ -144,7 +162,7 @@
                     "name": "title",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Wrap words in *stars* to highlight them.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -165,7 +183,7 @@
                     "name": "description",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Wrap words in *stars* to highlight them.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -201,5 +219,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1791981133
+    "modified": 1792503109
 }

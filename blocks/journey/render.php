@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $bgi_eyebrow  = get_field( 'eyebrow' );
 $bgi_heading  = get_field( 'heading' );
-$bgi_intro    = get_field( 'intro' );
+$bgi_intro    = get_field( 'intro', false, false );
 $bgi_rows     = get_field( 'items' );
 $bgi_image_id = (int) get_field( 'image' );
 
@@ -56,8 +56,9 @@ if ( ! empty( $block['className'] ) ) {
 
 // The header menu links to #journey, so that is the id unless another anchor is set.
 $bgi_anchor = ! empty( $block['anchor'] ) ? $block['anchor'] : 'journey';
+$bgi_gold   = array( 'span' => array( 'class' => array() ) );
 ?>
-<section id="<?php echo esc_attr( $bgi_anchor ); ?>" class="<?php echo esc_attr( $bgi_classes ); ?>">
+<section id="<?php echo esc_attr( $bgi_anchor ); ?>" class="<?php echo esc_attr( $bgi_classes ); ?>"<?php bgi_highlight_color_attr( $block ); ?>>
 	<div class="container">
 		<div class="split">
 			<div class="reveal">
@@ -70,7 +71,7 @@ $bgi_anchor = ! empty( $block['anchor'] ) ? $block['anchor'] : 'journey';
 				<?php endif; ?>
 
 				<?php if ( $bgi_intro ) : ?>
-					<p class="journey-intro"><?php echo esc_html( $bgi_intro ); ?></p>
+					<p class="journey-intro"><?php echo wp_kses( bgi_inline_text( $bgi_intro ), bgi_inline_allowed_tags() ); ?></p>
 				<?php endif; ?>
 
 				<div class="num-list">
@@ -78,10 +79,10 @@ $bgi_anchor = ! empty( $block['anchor'] ) ? $block['anchor'] : 'journey';
 						<div class="num-item">
 							<div class="num-body">
 								<?php if ( '' !== $bgi_item['title'] ) : ?>
-									<h3><?php echo esc_html( $bgi_item['title'] ); ?></h3>
+									<h3><?php echo wp_kses( bgi_highlight( $bgi_item['title'] ), $bgi_gold ); ?></h3>
 								<?php endif; ?>
 								<?php if ( '' !== $bgi_item['description'] ) : ?>
-									<p><?php echo esc_html( $bgi_item['description'] ); ?></p>
+									<p><?php echo wp_kses( bgi_highlight( $bgi_item['description'] ), $bgi_gold ); ?></p>
 								<?php endif; ?>
 							</div>
 						</div>
