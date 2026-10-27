@@ -37,11 +37,10 @@ add_action( 'acf/input/admin_enqueue_scripts', 'bgi_acf_admin_styles' );
 function bgi_acf_admin_styles() {
 	wp_add_inline_style( 'acf-input', '.bgi-gallery-no-sort .acf-gallery-sort { display: none; }' );
 
-	/*
-	 * ACF clips each text input's wrapper (overflow: hidden). At some browser zoom levels the input's 1px
-	 * border then falls on a fractional pixel and is cut off at the left, as seen in the expanded block
-	 * editor. Block fields use no prepend/append boxes, which is what the clipping is for.
-	 */
+	// Address fields (bgi-ltr-field) read left to right in Arabic too.
+	wp_add_inline_style( 'acf-input', '.acf-field.bgi-ltr-field input, .acf-field.bgi-ltr-field textarea { direction: ltr !important; text-align: left !important; }' );
+
+	// Stop ACF clipping input borders in block forms at some zoom levels.
 	wp_add_inline_style( 'acf-input', '.acf-block-fields .acf-input-wrap { overflow: visible; }' );
 
 	// Colour pickers offer the theme palette (theme.json) as swatches, light gold first; any colour can still be typed.
@@ -53,10 +52,7 @@ function bgi_acf_admin_styles() {
 		)
 	);
 
-	/*
-	 * Section paragraph editors read like a form field: the theme's editor styles (the site stylesheet,
-	 * with its black page) are left out, the text is dark on white, and the box starts short.
-	 */
+	// Section paragraph editors: no site styles, dark text on white, short box.
 	wp_add_inline_script(
 		'acf-input',
 		sprintf(
@@ -87,8 +83,7 @@ function bgi_color_palette() {
 
 add_filter( 'acf/fields/wysiwyg/toolbars', 'bgi_wysiwyg_toolbars' );
 /**
- * "BGI Inline" toolbar for section paragraphs: bold, italic and links only, so the text stays one
- * paragraph in the design.
+ * "BGI Inline" toolbar for section paragraphs: bold, italic and links.
  *
  * @param array $toolbars Toolbars keyed by name, each a list of button rows.
  * @return array

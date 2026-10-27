@@ -38,10 +38,7 @@ if ( ! empty( $block['className'] ) ) {
 	$bgi_classes .= ' ' . $block['className'];
 }
 
-/*
- * The track slides by half its own width and then restarts, so the keyword set
- * must repeat an even number of times for the loop to be seamless.
- */
+// Repeat the keywords an even number of times for a seamless loop.
 $bgi_repeats = 8;
 ?>
 <div class="<?php echo esc_attr( $bgi_classes ); ?>"<?php echo ! empty( $block['anchor'] ) ? ' id="' . esc_attr( $block['anchor'] ) . '"' : ''; ?>>

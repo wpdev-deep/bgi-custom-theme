@@ -1,8 +1,5 @@
 /**
- * Hero block: procedural wireframe skyline with idle motion, mouse parallax and a dolly-in.
- *
- * Skipped on touch devices, small screens and for reduced-motion users, and whenever WebGL
- * is unavailable. In all of those cases the inline SVG fallback stays visible.
+ * Hero block: WebGL wireframe skyline; SVG fallback on touch, small screens, reduced motion or no WebGL.
  *
  * @package BGI
  */

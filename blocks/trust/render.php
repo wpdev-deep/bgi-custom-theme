@@ -26,6 +26,7 @@ if ( is_array( $bgi_rows ) ) {
 			$bgi_clients[] = array(
 				'name'     => $bgi_name,
 				'location' => $bgi_location,
+				'link'     => isset( $bgi_row['link'] ) ? bgi_card_link( $bgi_row['link'] ) : null,
 			);
 		}
 	}
@@ -97,14 +98,24 @@ $bgi_gold   = array( 'span' => array( 'class' => array() ) );
 		<?php endif; ?>
 
 		<div class="client-grid">
-			<?php foreach ( $bgi_clients as $bgi_i => $bgi_client ) : ?>
-				<div class="client-card reveal reveal-delay-<?php echo esc_attr( ( $bgi_i % 4 ) + 1 ); ?> tilt">
+			<?php
+			foreach ( $bgi_clients as $bgi_i => $bgi_client ) :
+				$bgi_card_class = 'client-card reveal reveal-delay-' . ( ( $bgi_i % 4 ) + 1 ) . ' tilt';
+				$bgi_card_link  = ! empty( $bgi_client['link'] ) ? $bgi_client['link'] : null;
+				$bgi_card_url   = $bgi_card_link ? $bgi_card_link['href'] : '';
+				// Linked cards open in the embed pop-up (main.js); without JS the link opens normally.
+				if ( '' !== $bgi_card_url ) :
+					?>
+					<a class="<?php echo esc_attr( $bgi_card_class . ' client-card-link' ); ?>" href="<?php echo esc_url( $bgi_card_url ); ?>"<?php echo $bgi_card_link['blank'] ? ' target="_blank" rel="noopener"' : ''; ?><?php echo '' !== $bgi_card_link['embed'] ? ' data-bgi-embed="' . esc_url( $bgi_card_link['embed'] ) . '" data-bgi-embed-title="' . esc_attr( $bgi_client['name'] ) . '" aria-haspopup="dialog"' : ''; ?>>
+				<?php else : ?>
+					<div class="<?php echo esc_attr( $bgi_card_class ); ?>">
+				<?php endif; ?>
 					<div class="tilt-glare"></div>
 					<div class="cname"><?php echo esc_html( $bgi_client['name'] ); ?></div>
 					<?php if ( '' !== $bgi_client['location'] ) : ?>
 						<div class="cloc"><?php echo esc_html( $bgi_client['location'] ); ?></div>
 					<?php endif; ?>
-				</div>
+				<?php echo '' !== $bgi_card_url ? '</a>' : '</div>'; ?>
 			<?php endforeach; ?>
 		</div>
 

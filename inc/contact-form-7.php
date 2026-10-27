@@ -1,9 +1,6 @@
 <?php
 /**
- * Contact Form 7 integration for the Contact block and the header's "Book a Demo" modal.
- *
- * The theme creates a contact form and a demo form for each language once, then leaves
- * them alone: they can be edited, replaced or deleted under Contact → Contact Forms.
+ * Contact Form 7 integration for the Contact block and the "Book a Demo" modal.
  *
  * @package BGI
  */
@@ -226,8 +223,6 @@ function bgi_cf7_demo_mail( $s ) {
 /**
  * Arabic versions of CF7's response and validation messages.
  *
- * CF7 may not ship an Arabic translation, so the Arabic forms get these directly.
- *
  * @return string[] Messages keyed by CF7 message name.
  */
 function bgi_cf7_ar_messages() {
@@ -280,9 +275,7 @@ function bgi_cf7_form_sets() {
 
 add_action( 'admin_init', 'bgi_cf7_create_forms' );
 /**
- * Create the contact and "Book a Demo" forms once, so the site works without setup.
- *
- * Each set runs a single time: forms deleted afterwards are not recreated.
+ * Create the contact and "Book a Demo" forms once per language.
  *
  * @return void
  */
@@ -324,10 +317,7 @@ function bgi_cf7_create_forms() {
 }
 
 /**
- * First form ID in the list that still exists.
- *
- * Each language is tried in turn (the given one, then English): the form chosen for
- * it, then the form the theme created for it.
+ * First existing form ID: the chosen form, then the created one (given language, then English).
  *
  * @param string   $option Option holding the created forms, e.g. "bgi_cf7_demo_forms".
  * @param callable $chosen Returns the form chosen for a language slug, or 0.
@@ -356,10 +346,7 @@ function bgi_cf7_pick_form( $option, $chosen, $lang ) {
 }
 
 /**
- * ID of the form shown in the header's "Book a Demo" modal for the current language.
- *
- * Order: the form chosen on this language's Texts page, the form created for this
- * language, then the English choices.
+ * Form ID for the "Book a Demo" modal in the current language.
  *
  * @return int Form ID, or 0 when none exists.
  */
@@ -374,10 +361,7 @@ function bgi_demo_form_id() {
 }
 
 /**
- * ID of the form shown by a Contact block.
- *
- * Order: the form chosen in the block, the form created for the page's language,
- * then the English one.
+ * Form ID for a Contact block: block choice, page language, then English.
  *
  * @param int $chosen Form chosen in the block, or 0.
  * @return int Form ID, or 0 when none exists.

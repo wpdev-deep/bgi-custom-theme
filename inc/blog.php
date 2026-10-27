@@ -15,8 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'BGI_WORDS_PER_MINUTE', 200 );
 
 /**
- * Localize the digits in the text of an HTML fragment, leaving tags and attributes (such as URLs) alone.
- * Uses bgi_localize_digits() from inc/template-tags.php.
+ * Localize digits in an HTML fragment's text, leaving tags and attributes alone.
  *
  * @param string $html HTML markup.
  * @return string
@@ -60,10 +59,7 @@ function bgi_post_date( $format, $post = null ) {
 }
 
 /**
- * Reading time, e.g. "5 min read".
- *
- * The article's own "Reading time" field when set; otherwise estimated from its length,
- * counting words on whitespace so Arabic text is counted too.
+ * Reading time, e.g. "5 min read": the article's field, or estimated from its length.
  *
  * @param int|WP_Post|null $post Post, defaults to the current one.
  * @return string
@@ -113,8 +109,6 @@ function bgi_post_category( $post = null ) {
 /**
  * Other articles for "Continue Reading": same category first, then the most recent.
  *
- * Polylang limits both queries to the current language.
- *
  * @param int $post_id Current article.
  * @param int $count   Number of articles to return.
  * @return WP_Post[]
@@ -162,9 +156,7 @@ function bgi_related_posts( $post_id, $count = 2 ) {
 
 add_action( 'pre_get_posts', 'bgi_blog_order' );
 /**
- * List articles oldest first on the blog page, as blog.html does, and on every archive (category,
- * tag, date, author) so they match it. Search results show articles only, as article cards: pages
- * have no card.
+ * Blog and archives list oldest first; search shows articles only.
  *
  * @param WP_Query $query Query being set up.
  * @return void
