@@ -2,8 +2,7 @@
 /**
  * Template Name: Legal
  *
- * Page layout for the Privacy Policy and Terms & Conditions: a hero with the page title
- * and its "last updated" date, then the page's own Gutenberg content.
+ * Privacy Policy and Terms layout: title, last updated date and page content.
  *
  * @package BGI
  */

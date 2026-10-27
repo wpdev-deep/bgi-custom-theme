@@ -1,10 +1,6 @@
 <?php
 /**
- * Block render template: Frame Sequence.
- *
- * One template for both scroll sequences in the design. The "style" field picks the
- * class set (cinema-* or twin-*), which sets the scroll length, shading and frame filter,
- * and the frames and caption used until the editor supplies their own.
+ * Block render template: Frame Sequence (cinema or twin style).
  *
  * @package BGI
  *
@@ -54,11 +50,7 @@ $bgi_frames = array();
 $bgi_ids    = get_field( 'frames' );
 if ( is_array( $bgi_ids ) ) {
 	foreach ( $bgi_ids as $bgi_id ) {
-		/*
-		 * Each frame fills the screen with object-fit: cover. On screens taller than the image's shape
-		 * it is drawn at the screen height and cropped at the sides, so it is wider than the screen.
-		 * "100vw" made phones download a file a third of the size needed, which looked soft.
-		 */
+		// Sizes for a cover-cropped full-screen frame, drawn wider than the screen on tall screens.
 		$bgi_meta  = wp_get_attachment_metadata( (int) $bgi_id );
 		$bgi_sizes = '100vw';
 		if ( ! empty( $bgi_meta['width'] ) && ! empty( $bgi_meta['height'] ) ) {

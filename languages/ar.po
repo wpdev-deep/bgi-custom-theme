@@ -379,3 +379,9 @@ msgstr[2] "تم العثور على مقالين."
 msgstr[3] "تم العثور على %s مقالات."
 msgstr[4] "تم العثور على %s مقالاً."
 msgstr[5] "تم العثور على %s مقال."
+
+msgid "Virtual tour"
+msgstr "جولة افتراضية"
+
+msgid "Loading…"
+msgstr "جارٍ التحميل…"

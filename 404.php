@@ -1,7 +1,6 @@
 <?php
 /**
- * 404, ported from 404.html. Shown inside the site header and footer; the header's
- * language toggle replaces the source page's own.
+ * 404 page, ported from 404.html, inside the site header and footer.
  *
  * @package BGI
  */

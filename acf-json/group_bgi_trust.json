@@ -140,7 +140,7 @@
             "name": "clients",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "Shown four to a row (two on phones), in this order; drag rows to reorder. A row without a name is skipped. Leave empty to use the eight clients from the design.",
+            "instructions": "Shown four to a row (two on phones), in this order; drag rows to reorder. A row without a name is skipped. Leave empty to use the eight clients from the design. Link: paste a virtual tour link or its embed code (for example from Matterport) to make the card open it in a pop-up on the page. Use links that can be shown inside another website, such as Matterport, Kuula, YouTube or Vimeo; most hotel websites refuse this and would show an empty pop-up.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -166,7 +166,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
@@ -187,7 +187,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
@@ -197,6 +197,27 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_bgi_trust_clients"
+                },
+                {
+                    "key": "field_bgi_trust_client_link",
+                    "label": "Pop-up link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "bgi-ltr-field",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https://… or <iframe>",
+                    "parent_repeater": "field_bgi_trust_clients",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         }
@@ -219,5 +240,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1792503109
+    "modified": 1793009644
 }

@@ -1,9 +1,6 @@
 <?php
 /**
- * ACF options pages: one shared page plus one per language.
- *
- * Shared   (post_id "options")    - language independent values.
- * Per-lang (post_id "bgi_{lang}") - translatable header, footer and modal text.
+ * ACF options pages: a shared page plus one per language.
  *
  * @package BGI
  */
@@ -72,8 +69,7 @@ function bgi_is_blank( $value ) {
 }
 
 /**
- * Read an option, cascading until a value is found:
- * current language page, English page, shared page, then the fallback.
+ * Read an option: current language, English, shared page, then the fallback.
  *
  * @param string $field    ACF field name.
  * @param mixed  $fallback Value returned when the field is empty everywhere.
@@ -98,10 +94,7 @@ function bgi_opt( $field, $fallback = null ) {
 
 add_filter( 'acf/json/save_file_name', 'bgi_acf_json_file_name', 10, 3 );
 /**
- * Keep a field group's JSON file name when it is saved from the dashboard.
- *
- * ACF names files after the group key by default, which would write a second file
- * beside any that has been given a readable name.
+ * Keep a field group's readable JSON file name when saved from the dashboard.
  *
  * @param string $filename  The default file name, "{group key}.json".
  * @param array  $post      The field group being saved.

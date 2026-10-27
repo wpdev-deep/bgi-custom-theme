@@ -188,10 +188,7 @@ function bgi_localize_digits( $text ) {
 }
 
 /**
- * Date shown as "Last updated" on a legal page.
- *
- * The page's own "Last updated" field when set, so a typo fix does not change the legal date;
- * otherwise the date the page was last saved.
+ * "Last updated" date of a legal page: its field, else the last saved date.
  *
  * @param int|null $post_id Page ID. Defaults to the current page.
  * @return string Localised date, e.g. "August 9, 2026" or "٩ أغسطس ٢٠٢٦".
@@ -216,11 +213,7 @@ function bgi_legal_updated_date( $post_id = null ) {
 }
 
 /**
- * Print the style attribute that recolours a block's highlighted words.
- *
- * Uses the block's "Highlight colour" field. A block saved before the field existed has no value
- * yet, so it falls back to the field's default for that block (gold on paper sections, light gold
- * on dark ones). Prints nothing when neither is a valid colour.
+ * Print the style attribute with the block's highlight colour, or its default.
  *
  * @param array $block The block settings and attributes.
  * @return void
@@ -241,15 +234,13 @@ function bgi_highlight_color_attr( $block = array() ) {
 /**
  * Default value of a field in a block's own field group.
  *
- * Several blocks share a field name with different defaults, so the field is looked up in the
- * groups attached to that block rather than by name alone.
- *
  * @param string $block_name Block name, e.g. "bgi/journey".
  * @param string $field_name Field name.
  * @return string Empty when the field or its default is missing.
  */
 function bgi_block_field_default( $block_name, $field_name ) {
 	static $cache = array();
+
 	$key = $block_name . '|' . $field_name;
 	if ( ! isset( $cache[ $key ] ) ) {
 		$cache[ $key ] = '';
@@ -268,8 +259,7 @@ function bgi_block_field_default( $block_name, $field_name ) {
 }
 
 /**
- * Tags a section paragraph may carry: bold, italic, links and line breaks from its text editor,
- * and the highlight span that *stars* become.
+ * Allowed tags in section paragraphs: bold, italic, links, line breaks and highlights.
  *
  * @return array Allowed HTML for wp_kses().
  */
@@ -293,11 +283,7 @@ function bgi_inline_allowed_tags() {
 }
 
 /**
- * Prepare a section paragraph's editor text for printing inside its <p>.
- *
- * The editor may wrap lines in <p>; they become line breaks, so the section keeps its single
- * paragraph and the design's spacing. Plain text saved before the editor was added works as is.
- * The caller passes the result through wp_kses() with bgi_inline_allowed_tags().
+ * Prepare editor text for one <p>: paragraphs become line breaks.
  *
  * @param string $text Raw field value (get_field() with formatting off).
  * @return string
@@ -310,8 +296,7 @@ function bgi_inline_text( $text ) {
 	$text = preg_replace( '#</?p[^>]*>#i', '', $text );
 	$text = nl2br( trim( $text ), false );
 
-	// In the words (not inside tags): encode quotes, as esc_html() did, so WordPress's later curly-quote
-	// pass over the page leaves them straight as in the source design; then turn *words* into highlights.
+	// Encode quotes in the words (kept straight) and turn *words* into highlights.
 	return preg_replace_callback(
 		'/(^|>)([^<]+)/',
 		function ( $matches ) {
@@ -320,4 +305,18 @@ function bgi_inline_text( $text ) {
 		},
 		$text
 	);
+}
+
+add_filter( 'wp_content_img_tag', 'bgi_strip_auto_sizes' );
+/**
+ * Remove sizes=auto from bgi-no-auto-sizes images, which are drawn wider than their box.
+ *
+ * @param string $image Image tag as WordPress will print it.
+ * @return string
+ */
+function bgi_strip_auto_sizes( $image ) {
+	if ( false === strpos( $image, 'bgi-no-auto-sizes' ) ) {
+		return $image;
+	}
+	return preg_replace( '/\bsizes="auto,\s*/i', 'sizes="', $image );
 }

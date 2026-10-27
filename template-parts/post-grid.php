@@ -1,7 +1,6 @@
 <?php
 /**
- * Article cards for the current query, with pagination, or a message when there are none.
- * Used by the blog page (home.php) and by archives and search results (index.php).
+ * Article cards with pagination, or a message when there are none.
  *
  * @package BGI
  *

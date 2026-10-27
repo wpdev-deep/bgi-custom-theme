@@ -1,8 +1,6 @@
 <?php
 /**
- * Site logo link: the uploaded image, or the text mark when none is set.
- *
- * Expects $args['image'] to hold an ACF image value.
+ * Site logo link: uploaded image or text mark.
  *
  * @package BGI
  */

@@ -1,8 +1,5 @@
 /**
- * Frame Sequence block: crossfade through the stills as the wrap scrolls past.
- *
- * Runs on every screen size, touch included. Only for reduced-motion users does the wrap
- * collapse to one screen and show the middle frame, with no progress bar.
+ * Frame Sequence block: crossfade the stills on scroll; one still frame for reduced motion.
  *
  * @package BGI
  */

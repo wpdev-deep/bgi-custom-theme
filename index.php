@@ -1,9 +1,6 @@
 <?php
 /**
- * Archives and search results: categories, tags, dates, authors and ?s= searches.
- *
- * The source has no such pages, so they reuse the blog page's layout (blog.html): a hero naming
- * what is listed, then the same article cards and pagination.
+ * Archives and search results, in the blog page layout.
  *
  * @package BGI
  */

@@ -55,6 +55,15 @@ $bgi_demo_form_id = bgi_demo_form_id();
 	<?php endif; ?>
 </div>
 
+<?php // Embed pop-up for card links (main.js). ?>
+<div class="embed-overlay" id="embedOverlay"></div>
+<div class="embed-modal" id="embedModal" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Virtual tour', 'bgi' ); ?>">
+	<button type="button" class="embed-modal-close" id="embedModalClose" aria-label="<?php esc_attr_e( 'Close', 'bgi' ); ?>">&times;</button>
+	<div class="embed-frame" id="embedFrame">
+		<p class="embed-loading"><?php esc_html_e( 'Loading…', 'bgi' ); ?></p>
+	</div>
+</div>
+
 <header id="siteHeader">
 	<div class="container">
 		<nav aria-label="<?php esc_attr_e( 'Primary', 'bgi' ); ?>">

@@ -1,8 +1,6 @@
 <?php
 /**
- * Blog index (Posts page). Hero + post cards, ported from blog.html.
- *
- * Polylang serves the translated Posts page and limits the loop to the current language.
+ * Blog index (Posts page), ported from blog.html.
  *
  * @package BGI
  */

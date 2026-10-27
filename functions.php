@@ -22,4 +22,5 @@ require_once BGI_DIR . '/inc/contact-form-7.php';
 require_once BGI_DIR . '/inc/class-bgi-plain-nav-walker.php';
 require_once BGI_DIR . '/inc/template-tags.php';
 require_once BGI_DIR . '/inc/blog.php';
+require_once BGI_DIR . '/inc/embeds.php';
 require_once BGI_DIR . '/inc/svg.php';

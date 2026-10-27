@@ -1,8 +1,4 @@
-/* ==========================================================================
-   Typography / Local Fonts
-   The WOFF2 files Google Fonts serves for this design (Latin and Arabic subsets),
-   self-hosted. Oswald and Playfair Display are variable: one file covers every weight.
-   ========================================================================== */
+/* ---------- Typography: self-hosted Google Fonts (Latin and Arabic) ---------- */
 
 /* Oswald 400 - latin */
 @font-face {
@@ -307,6 +303,8 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
     background: var(--black);
+    /* Reserve the scrollbar space so pop-ups do not shift the page. */
+    scrollbar-gutter: stable;
 }
 
 body {
@@ -2340,12 +2338,7 @@ a.lang-toggle {
 }
 
 /* ---------- Responsive fixes (not in the source design) ---------- */
-/*
- * .hero-content and the two frame-sequence captions also carry .container, but their
- * "padding: X 0" shorthand removes the container's 32px side padding. Above 1284px the
- * centred 1220px box still leaves a margin; below it the text met the screen edge.
- * Restoring the side padding only below that width keeps wide screens exactly as designed.
- */
+/* Restore the container side padding below 1284px, which the captions' padding shorthand removes. */
 @media (max-width: 1283px) {
 
     .hero-content,
@@ -2364,10 +2357,7 @@ a.lang-toggle {
 }
 
 /* ---------- Hover fixes (not in the source design) ---------- */
-/*
- * On light and alternate sections the card background rule outranked :hover, so hovering
- * only darkened the text and the number while the card stayed cream.
- */
+/* Hover background for cards on light and alternate sections. */
 html:not(.bgi-tilt) section.light .client-card:hover,
 section.light .client-card.tilting,
 html:not(.bgi-tilt) section.alt .client-card:hover,
@@ -2387,11 +2377,7 @@ section.alt .usecase-card.tilting {
     background: var(--gold);
 }
 
-/*
- * The source sets will-change: transform on every .tilt card, so the browser keeps each card on
- * its own layer. At the half-pixel card widths a 1px-gap grid produces, those layers cover the
- * divider lines (seen in the Impact grid). Tilting still works without the hint.
- */
+/* No will-change on tilt cards: their layers covered the grid lines. */
 .tilt {
     will-change: auto;
 }
@@ -2475,10 +2461,7 @@ html[dir="rtl"] .mobile-menu.open {
     background: radial-gradient(circle at 70% 20%, #171712 0%, #080807 70%);
 }
 
-/*
- * The source's blog pages use a lighter body grey than the home page and taller lines:
- * 1.7 on the index (blog.html), 1.75 on articles (blog-*.html).
- */
+/* Blog pages use the source's lighter grey and taller line heights. */
 .blog-hero,
 .blog-list,
 .blog-grid,
@@ -2841,10 +2824,7 @@ body.lang-ar .article-cta h3 {
     font-weight: 700;
 }
 
-/*
- * The source's article button is plainer than the home page's: smaller padding, no shadow on hover,
- * and it may wrap. It also keeps its dark text, which the content link colour above would replace.
- */
+/* Article CTA button: plainer than the home page button, keeps its dark text. */
 .article-body .article-cta .btn {
     position: static;
     overflow: visible;
@@ -2916,10 +2896,7 @@ body.lang-ar .related a {
     }
 }
 
-/*
- * Contact Form 7 message box: the forms ask for three rows, which in Poppins comes to 102px.
- * The design's box is the 100px minimum height.
- */
+/* CF7 message box at the design's 100px height. */
 .wpcf7 .form-group textarea {
     height: 100px;
 }
@@ -3015,12 +2992,7 @@ body.lang-ar .legal-hero h1 {
     }
 }
 
-/*
- * Arabic marquee. In right-to-left pages the track is anchored to the right edge and overflows to
- * the left, so the source's reversed left-hand animation slid it off screen and left the strip empty
- * for most of each cycle. It now moves right by half its width, which keeps the strip filled and
- * loops seamlessly, with new keywords entering from the left as Arabic reads.
- */
+/* Arabic marquee: move right by half the track width so the loop stays filled. */
 @keyframes marquee-rtl {
     from {
         transform: translateX(0);
@@ -3037,16 +3009,8 @@ html[dir="rtl"] .marquee-track {
 }
 
 /* ---------- Smooth hover (not in the source design) ---------- */
-/*
- * Where the tilt script runs (html.bgi-tilt is set), card hover colours follow its .tilting class,
- * which tracks the pointer against each card's untransformed box. The browser's own :hover tests the
- * tilted, enlarged card instead and flickers at its edges. Elsewhere (touch, no script) :hover is used.
- */
-/*
- * Tilt cards: the card itself stays flat and exactly fills its grid cell, so its hover colour never
- * spills over the grid lines; the script tilts the card's content instead. The content follows the
- * pointer with a short ease and eases back flat on leaving.
- */
+/* With the tilt script, card hover colours follow .tilting; otherwise :hover. */
+/* Tilt cards stay flat in their cell; the script tilts the content. */
 .client-card.tilt,
 .feature-card.tilt,
 .impact-card.tilt,
@@ -3075,11 +3039,7 @@ html[dir="rtl"] .marquee-track {
     transition: border-color .25s ease, color .25s ease;
 }
 
-/*
- * Footer on phones. The brand and contact blocks stack once the screen is too narrow for both, but the
- * contact block kept its right alignment and floated in the middle. Below 600px they stack on purpose and
- * the contact details line up with the rest of the footer (left in English, right in Arabic).
- */
+/* Footer on phones: stack brand and contact, align contact to the start. */
 @media (max-width: 600px) {
     .footer-top {
         flex-direction: column;
@@ -3091,20 +3051,14 @@ html[dir="rtl"] .marquee-track {
 }
 
 /* ---------- 404 page (404.html) ---------- */
-/*
- * The source centres the message in a full screen of its own. Here the same screen sits between the
- * site header and footer; the fixed header floats over its top, as it does over the home hero.
- */
+/* 404 message centred in a full screen between the header and footer. */
 .error-404 {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     min-height: 100svh;
-    /*
-     * The source pads 32px. Equal top and bottom padding taller than the fixed header (95px) keeps the
-     * message centred on screen while stopping it from sliding under the header on short screens.
-     */
+    /* Equal padding taller than the fixed header keeps the message centred and clear of it. */
     padding: 110px 32px;
     text-align: center;
     line-height: normal;
@@ -3176,11 +3130,7 @@ body.lang-ar .error-404 h1 {
 }
 
 /* ---------- Highlight colour (block setting) ---------- */
-/*
- * A block's "Highlight colour" field sets --bgi-highlight on the section. It then recolours every
- * highlighted word in that section: heading, footer line and Approach points. Without it the design's
- * colours above apply (light gold in headings, gold in footer lines and points).
- */
+/* Block highlight colour (--bgi-highlight) recolours every highlight in the section. */
 [style*="--bgi-highlight"] .gold,
 [style*="--bgi-highlight"] .hl {
     color: var(--bgi-highlight);
@@ -3222,10 +3172,7 @@ body.lang-ar .error-404 h1 {
     color: var(--gold);
 }
 
-/*
- * Highlights inside a card that turns gold on hover take the card's dark hover text colour,
- * so a gold highlight never disappears into the gold background.
- */
+/* Highlights in a hovered gold card take the card's dark text colour. */
 html:not(.bgi-tilt) .feature-card:hover .gold,
 .feature-card.tilting .gold,
 html:not(.bgi-tilt) .impact-card:hover .gold,
@@ -3234,3 +3181,139 @@ html:not(.bgi-tilt) .usecase-card:hover .gold,
 .usecase-card.tilting .gold {
     color: inherit;
 }
+
+/* ---------- Trust: client card with a link ---------- */
+/* Linked client card: same look, pointer cursor, hover style on keyboard focus. */
+a.client-card-link {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.client-card-link:focus-visible {
+    background: var(--gold);
+    color: #0a0700;
+    outline: 2px solid var(--gold-light);
+    outline-offset: -2px;
+}
+
+a.client-card-link:focus-visible .cloc {
+    color: #3a2f10;
+}
+
+/* ---------- Embed pop-up (virtual tours and videos from card links) ---------- */
+/* Pop-up over a blurred backdrop; closes on outside click, the close button or Esc. */
+.embed-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    /* Above the WhatsApp button and the custom cursor. */
+    z-index: 1001;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+
+.embed-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: zoom-out;
+}
+
+.embed-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -46%);
+    /* Largest 16:9 box that fits. */
+    width: min(92vw, calc(86vh * 16 / 9));
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border: 1px solid var(--line);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    z-index: 1002;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease, transform .35s var(--ease);
+}
+
+.embed-modal.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+}
+
+.embed-frame,
+.embed-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.embed-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.74rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+/* Top right in both languages; tour players keep their logo top left. */
+.embed-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    transition: background .2s ease, transform .2s ease;
+}
+
+.embed-modal-close:hover,
+.embed-modal-close:focus-visible {
+    background: var(--gold-light);
+    transform: scale(1.06);
+}
+
+.embed-modal-close:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Phones: centred square, 90% of the screen width. */
+@media (max-width: 768px) {
+    .embed-modal {
+        width: min(90vw, 80vh);
+        aspect-ratio: 1 / 1;
+    }
+
+    .embed-modal-close {
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.45rem;
+    }
+}
+

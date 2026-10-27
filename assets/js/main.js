@@ -143,13 +143,7 @@
 	}
 
 	/* ==================== 3D TILT CARDS ==================== */
-	/*
-	 * Card content leans towards the pointer and enlarges slightly, with a moving highlight (.tilt-glare).
-	 * The pointer is tracked on the grid, which never moves, and compared with each card's
-	 * untransformed layout box. A tilted or enlarged card therefore can't slide out from under the
-	 * pointer and back, which is what made hover flicker at card edges. Updates are batched to one
-	 * per frame, and the CSS eases between them. Skipped on touch screens and for reduced motion.
-	 */
+	// Tilt follows the pointer against each card's untransformed box, one update per frame; off for touch and reduced motion.
 	const canTilt = window.matchMedia( '(hover: hover) and (pointer: fine)' ).matches &&
 		! window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 
@@ -318,6 +312,76 @@
 	if ( demoModal ) {
 		demoModal.addEventListener( 'wpcf7mailsent', function () {
 			setTimeout( closeDemoModal, 1800 );
+		} );
+	}
+
+	/* ==================== EMBED POP-UP ==================== */
+	// Cards with data-bgi-embed open in the pop-up; modifier clicks keep the browser's new-tab behaviour.
+	const embedOverlay = document.getElementById( 'embedOverlay' );
+	const embedModal = document.getElementById( 'embedModal' );
+	const embedFrame = document.getElementById( 'embedFrame' );
+	const embedClose = document.getElementById( 'embedModalClose' );
+	let embedOpener = null;
+
+	function closeEmbed() {
+		if ( ! embedModal || ! embedModal.classList.contains( 'open' ) ) {
+			return;
+		}
+		embedModal.classList.remove( 'open' );
+		embedOverlay.classList.remove( 'open' );
+		document.body.style.overflow = '';
+		const iframe = embedFrame.querySelector( 'iframe' );
+		if ( iframe ) {
+			iframe.remove();
+		}
+		if ( embedOpener ) {
+			embedOpener.focus();
+			embedOpener = null;
+		}
+	}
+
+	function openEmbed( link ) {
+		const src = link.getAttribute( 'data-bgi-embed' );
+		if ( ! src || ! embedModal ) {
+			return false;
+		}
+		const iframe = document.createElement( 'iframe' );
+		iframe.src = src;
+		iframe.title = link.getAttribute( 'data-bgi-embed-title' ) || '';
+		iframe.allow = 'autoplay; fullscreen; xr-spatial-tracking; accelerometer; gyroscope; encrypted-media; picture-in-picture; clipboard-write';
+		iframe.allowFullscreen = true;
+		iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+		embedFrame.appendChild( iframe );
+		embedOpener = link;
+		embedOverlay.classList.add( 'open' );
+		embedModal.classList.add( 'open' );
+		document.body.style.overflow = 'hidden';
+		embedClose.focus();
+		return true;
+	}
+
+	if ( embedModal && embedOverlay && embedFrame && embedClose ) {
+		document.addEventListener( 'click', function ( e ) {
+			const link = e.target.closest( '[data-bgi-embed]' );
+			if ( ! link || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey ) {
+				return;
+			}
+			if ( openEmbed( link ) ) {
+				e.preventDefault();
+			}
+		} );
+		embedOverlay.addEventListener( 'click', closeEmbed );
+		embedClose.addEventListener( 'click', closeEmbed );
+		window.addEventListener( 'keydown', function ( e ) {
+			if ( 'Escape' === e.key ) {
+				closeEmbed();
+			}
+		} );
+		// Keep keyboard focus inside the open pop-up.
+		document.addEventListener( 'focusin', function ( e ) {
+			if ( embedModal.classList.contains( 'open' ) && ! embedModal.contains( e.target ) ) {
+				embedClose.focus();
+			}
 		} );
 	}
 } )();
